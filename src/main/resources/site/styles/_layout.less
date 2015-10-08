@@ -1,0 +1,52 @@
+.container {
+	width: 100%; 
+	max-width: 960px; 
+	margin-left: auto; 
+	margin-right: auto;
+	box-sizing: border-box; 
+	padding-left: 1em; 
+	padding-right: 1em; 
+} 
+
+.container--highlight {
+	background-color: @color-highlight-background;
+}
+
+.container--spaced {
+	padding-top: 4em; 
+	padding-bottom: 4em, 
+}
+
+.sidebar-figure {
+	img {
+		max-width: 100%;
+		height: auto; 
+	}
+
+	margin-bottom: 2em; 
+}
+
+figure {
+	padding: 0; 
+	margin-left: 0; 
+	margin-right: 0; 
+}
+
+hr {
+	height: 1px;
+	display: block;
+	width: 100%; 
+	background-color: @color-border;
+	margin: 1em 0; 
+	border: 0; 
+}
+
+.end {
+	// Fra Kube.css
+	margin-bottom: 0!important; 
+}
+
+.main-content {
+	padding-bottom: 1em;
+	border-bottom: 1px solid @color-border; 
+}

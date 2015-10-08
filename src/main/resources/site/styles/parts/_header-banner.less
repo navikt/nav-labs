@@ -1,0 +1,67 @@
+.header-banner {
+	display: block; 
+	padding-top: 1em; 
+	padding-bottom: 1em; 
+	text-align: center; 
+	
+
+	.highlight {
+		color: @color-branding; 
+	}
+
+}
+
+.header-branding {
+	margin-top: .5em; 
+	font-size: 3.7em; 
+	margin-bottom: 0; 
+	text-transform: uppercase;
+}
+
+.header-banner-logo {
+	width: 75px; 
+	height: 47px; 
+	display: inline-block; 
+
+	img {
+		display: block;
+		width: 100%; 
+		height: auto;  
+	}
+}
+
+.header-tagline {
+	text-align: center; 
+	font-size: 1.3em; 
+	max-width: 22em; 
+	margin: 0 auto 4em auto; 
+	font-weight: 700; 
+}
+
+.header-information {
+	text-align: left; 
+	margin-bottom: 3em; 
+
+	strong {
+		font-size: 1.3em; 		
+	}
+}
+
+@media(min-width: @screen-xs) {
+	.header-banner {
+		background: url('images/header.png') no-repeat top left;
+		background-size: 72%; 		
+	}	
+}
+
+@media(min-width: @screen-m) {
+
+	.header-branding {
+		margin-top: 1.2em; 
+		font-size: 4.7em; 
+	}
+
+	.header-tagline {
+		margin-bottom: 8em;
+	}
+}

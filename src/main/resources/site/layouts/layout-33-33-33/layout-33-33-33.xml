@@ -1,0 +1,9 @@
+<layout>
+  <display-name>33/33/33</display-name>
+  <config/>
+  <regions>
+    <region name="left"/>
+    <region name="center"/>
+    <region name="right"/>
+  </regions>
+</layout>

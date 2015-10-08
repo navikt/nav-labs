@@ -1,0 +1,37 @@
+<div class="container">
+
+	<article class="main-content" role="main" aria-labelledby="test-title">
+
+		<div class="page-header">
+			<h2 id="test-title" class="beta page-title" data-th-text="${test.displayName}">Testens tittel</h2>
+			<div class="page-meta" data-th-utext="${badgeHtml}"></div>
+		</div>
+
+		<p data-th-text="${test.publishDateFormatted}"></p>
+
+		<div class="units-row">
+
+			<div class="unit-66">
+
+				<p class="lead" data-th-text="${test.data.introduction}"></p>
+
+				<div class="wysiwyg-formatted" data-th-utext="${portal.processHtml({'_value=' + test.data.body })}"></div>
+
+				<p class="btn-row">
+					<a data-th-href="${test.data.testUrl}" class="btn">Start testen</a>
+				</p>
+
+			</div>
+
+			<div class="unit-33 images-container">
+				<figure class="sidebar-figure" data-th-each="image : ${test.data.images}">
+					<img data-th-alt="${image.caption}" data-th-src="${portal.imageUrl({'_id=' + image.image, '_scale=width(400)'})}" />
+					<figcaption data-th-text="${image.caption}"></figcaption>
+				</figure>
+			</div>
+
+		</div>
+
+	</article>
+
+</div>

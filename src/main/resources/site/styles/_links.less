@@ -1,0 +1,30 @@
+a {
+	color: @color-link; 
+	border-bottom: 1px solid @color-border; 
+	text-decoration: none; 
+}
+
+a:hover {
+	border-bottom-color: @color-link;
+}
+
+a:focus {
+	box-shadow: 0 0 0 3px @color-focus; 
+	background-color: @color-focus;
+	color: @color-text; 
+	border-bottom-color: @color-text; 
+	outline: none; 
+}
+
+.a-img {
+	display: block; 
+
+	&:focus {
+		box-shadow: none; 
+		outline: 3px solid @color-focus; 
+	}
+}
+
+a.unstyled {
+	border-bottom-width: 0; 
+}

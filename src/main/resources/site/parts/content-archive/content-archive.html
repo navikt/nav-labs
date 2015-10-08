@@ -1,0 +1,22 @@
+<div class="container">
+
+	<div class="page-header">
+		<h2 class="beta page-title" data-th-text="${content.displayName}"></h2>
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Tittel</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="content : ${archivedContents}">
+				<td>
+					<a href="#" data-th-text="${content.displayName}" data-th-href="${portal.pageUrl({'_path=' + content._path})}"></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>

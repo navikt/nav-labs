@@ -1,0 +1,37 @@
+.pills, .pills li, .content-list, .content-list li {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0; 
+}
+
+.pills li {
+	display: inline; 
+}
+
+.pills--centered {
+	text-align: center; 
+}
+
+.content-list {
+
+	font-size: 1.1em; 
+
+	a {
+		color: @color-text; 
+		border-bottom-width: 0; 
+		display: block; 
+		padding-bottom: .35em; 
+		padding-top: .35em; 
+		border-bottom: 1px solid @color-border; 
+	}
+
+	a:hover {
+		border-bottom-color: @color-link; 
+		color: @color-link; 
+	}
+
+	a:focus {
+		border-bottom-color: @color-text; 
+	}
+
+}

@@ -1,0 +1,41 @@
+<div class="container">
+	<h2 class="section-title">
+		<span data-th-text="${sectionTitle}"></span>
+	</h2>
+</div>
+
+<article data-th-each="frontpageTest : ${tests}" class="container--highlight">
+	<div class="container">
+		<div class="units-row frontpage-test">
+
+			<div class="unit-50">
+				<a class="unstyled a-img img-darkened" data-th-href="${portal.pageUrl({'_path=' + frontpageTest.test._path})}">
+					<img data-th-alt="${frontpageTest.image.displayName}" data-th-src="${portal.imageUrl({'_id=' + frontpageTest.image._id, '_scale=block(500, 380)'})}" width="500" height="380" />
+				</a>
+			</div>
+
+			<div class="unit-50">
+
+				<p data-th-text="${frontpageTest.test.publishDateFormatted}"></p>
+
+				<h3 class="delta frontpage-test-title">
+					<a href="#" data-th-text="${frontpageTest.test.displayName}" data-th-href="${portal.pageUrl({'_path=' + frontpageTest.test._path})}"></a>
+				</h3>
+
+				<span data-th-utext="${frontpageTest.badgeHtml}"></span>
+
+				<p data-th-text="${frontpageTest.test.data.introduction}"></p>
+
+				<p>
+					<a href="#" data-th-href="${portal.pageUrl({'_path=' + frontpageTest.test._path})}">Les mer om testen</a>
+				</p>
+
+				<p>
+					<a class="btn" target="_blank" href="#" data-th-href="${frontpageTest.test.data.testUrl}">Start testen</a>
+				</p>
+
+			</div>
+
+		</div>
+	</div>
+</article>

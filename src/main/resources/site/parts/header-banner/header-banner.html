@@ -1,0 +1,19 @@
+<header class="header-banner" role="banner">
+	<div class="container">
+		<a class="unstyled header-banner-logo" href="http://www.nav.no">
+			<img alt="Nav-logo" data-th-src="${portal.assetUrl({'_path=icons/nav-logo.png'})}" />
+		</a>
+
+		<h1 id="header-branding" class="header-branding">
+			<span class="highlight" data-th-text="${titleOne}"></span>
+			<span> </span>
+			<span data-th-text="${titleTwo}"></span>
+		</h1>
+
+		<p class="header-tagline" data-th-text="${tagline}" role="definition" aria-labelledby="header-branding"></p>
+
+		<div class="units-row header-information">
+			<div class="unit-50" data-th-each="description : ${headerDescription}" data-th-utext="${description}"></div>
+		</div>
+	</div> 
+</header>

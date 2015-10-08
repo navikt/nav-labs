@@ -1,0 +1,25 @@
+<div class="container">
+
+	<h2 class="section-title">
+		<span data-th-text="${sectionTitle}"></span>
+	</h2>
+
+	<article data-th-each="article : ${articles}" class="frontpage-article">
+
+		<a href="#" data-th-href="${portal.pageUrl({'_path=' + article._path})}">
+			<p data-th-text="${article.publishDateFormatted}"></p>
+
+			<h3 data-th-text="${article.displayName}" class="gamma frontpage-article-title"></h3>		
+
+			<div class="units-row end">
+				<div class="unit-66">
+
+					<p data-th-text="${article.data.introduction}"></p>
+
+				</div>
+			</div>
+		</a>
+
+	</article>
+
+</div>

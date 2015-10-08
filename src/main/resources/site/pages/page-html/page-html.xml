@@ -1,0 +1,9 @@
+<page>
+  <display-name>HTML-side</display-name>
+  <config/>
+  <regions>
+  	<region name="header"/>
+    <region name="main"/>
+    <region name="footer"/>
+  </regions>
+</page> 

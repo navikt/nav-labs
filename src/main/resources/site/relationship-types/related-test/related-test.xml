@@ -1,0 +1,9 @@
+<relationship-type>
+  <display-name>Test</display-name>
+  <from-semantic>relates to test</from-semantic>
+  <to-semantic>related of test</to-semantic>
+  <allowed-from-types/>
+  <allowed-to-types>
+    <content-type>com.enonic.xp.modules.navlabs:test</content-type>
+  </allowed-to-types>
+</relationship-type>

@@ -1,0 +1,70 @@
+<content-type>
+  <display-name>Test</display-name>
+  <super-type>system:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
+    <field-set name="basic">
+      <label>Informasjon</label>
+      <items> 
+        <input type="TextArea" name="introduction">
+          <label>Ingress</label>
+          <immutable>false</immutable>
+          <indexed>true</indexed>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input type="HtmlArea" name="body">
+          <label>Brødtekst</label>
+          <immutable>false</immutable>
+          <indexed>true</indexed>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
+        <item-set name="images">
+          <label>Bilder</label>
+          <items>
+            <input name="image" type="ImageSelector">
+              <label>Bilde</label>
+              <occurrences minimum="1" maximum="1"/>
+            </input>
+            <input type="TextArea" name="caption">
+              <label>Bildetekst</label>
+              <immutable>false</immutable>
+              <indexed>true</indexed>
+              <occurrences minimum="0" maximum="1"/>
+            </input>                          
+          </items>
+          <immutable>false</immutable>
+          <occurrences minimum="0" maximum="0"/>
+        </item-set>       
+      </items>
+    </field-set>
+    <field-set name="test-meta">
+      <label>Metainformasjon om testen</label>
+      <items>
+        <input type="Date" name="expiryDate">
+          <label>Utløpsdato</label>
+          <immutable>false</immutable>
+          <indexed>true</indexed>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input type="TextLine" name="testUrl">
+          <label>URL til testen</label>
+          <immutable>false</immutable>
+          <indexed>true</indexed>
+          <occurrences minimum="1" maximum="1"/>
+        </input>              
+        <input type="RadioButton" name="status">
+          <label>Status</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <option value="testing">Tester nå</option>
+            <option value="analyzing">Analyserer</option>
+            <option value="finished">Ferdig</option>
+          </config>
+        </input>        
+      </items>
+    </field-set>
+  </form>
+</content-type>

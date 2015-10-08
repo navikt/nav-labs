@@ -1,0 +1,19 @@
+<part>
+  <display-name>Artikler på forsiden</display-name>
+  <config>
+   <input name="sectionTitle" type="TextLine">
+     <label>Tittel på seksjonen</label>
+     <occurrences minimum="1" maximum="1"/>
+   </input> 
+    <input type="ContentSelector" name="related-article">
+      <label>Artikkel</label>
+      <immutable>false</immutable>
+      <indexed>true</indexed>
+      <occurrences minimum="1" maximum="5"/>
+      <config>
+        <relationship-type>related-article</relationship-type>
+        <allow-content-type>article</allow-content-type>
+      </config>
+    </input> 
+  </config>
+</part>

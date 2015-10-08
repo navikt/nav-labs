@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+  <config>
+    <field-set name="info">
+      <label>Info</label>
+      <items>
+        <input type="TextLine" name="siteUrl">
+          <label>URL</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input type="TextLine" name="disqusShortName">
+          <label>Disqus short name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>        
+      </items>
+    </field-set>
+  </config>
+</site>

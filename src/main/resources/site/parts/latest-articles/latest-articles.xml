@@ -1,0 +1,13 @@
+<part>
+  <display-name>Siste artikler</display-name>
+  <config>
+    <input name="title" type="TextLine">
+      <label>Tittel</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+    <input name="numberOfArticles" type="Double">
+      <label>Antall artikler</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>    
+  </config>  
+</part>

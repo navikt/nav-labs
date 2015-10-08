@@ -1,0 +1,7 @@
+<h2 class="zeta" data-th-text="${title}"></h2>
+
+<ul class="content-list">
+	<li data-th-each="hit : ${hits}">
+		<a href="#" data-th-text="${hit.displayName}" data-th-href="${portal.pageUrl({'_path=' + hit._path})}"></a>	
+	</li>
+</ul>

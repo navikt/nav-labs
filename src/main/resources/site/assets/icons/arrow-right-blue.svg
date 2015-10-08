@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 23.7 41.5" enable-background="new 0 0 23.7 41.5" xml:space="preserve">
+<symbol  id="Pil_venstre" viewBox="-5 -8 9 16">
+	<polygon fill="#2668B1" points="4,-4.1 -0.1,0 4,4.1 4,8 -4,0 4,-8 	"/>
+	<polygon display="none" fill="none" points="-5,8 4,8 4,-8 -5,-8 	"/>
+</symbol>
+<use xlink:href="#Pil_venstre"  width="9" height="16" x="-5" y="-8" transform="matrix(-2.4375 0 0 2.4375 12.1719 20.9205)" overflow="visible"/>
+</svg>

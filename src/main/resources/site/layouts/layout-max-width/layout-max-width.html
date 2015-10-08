@@ -1,0 +1,7 @@
+<div class="units-row" data-th-attr="data-portal-component-type=${component.type}">
+  <div data-portal-region="center" class="container">
+    <div data-th-each="component : ${centerRegion.components}" data-th-remove="tag">
+      <div data-portal-component="${component.path}" data-th-remove="tag" />
+    </div>
+  </div>
+</div>

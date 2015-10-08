@@ -1,0 +1,123 @@
+body {
+	font-size: 100%; 
+	line-height: 1.4;
+	font-family: @base-font-family;
+	color: @color-text; 
+}
+
+.section-title {
+	background-color: @color-body-background; 
+	font-size: 1.3em; 
+	text-align: center;
+	text-transform: uppercase; 
+	position: relative;
+	font-weight: 700; 
+
+	&:after {
+		content: ""; 
+		display: block;
+		width: 100%; 
+		height: 2px; 
+		position: absolute; 
+		top: 50%; 
+		background: @color-text;
+		transform: translateY(-50%); 
+		z-index: 10; 
+	}
+
+	span {
+		position: relative;
+		background-color: inherit;
+		display: inline-block;  
+		padding-left: 1em;
+		padding-right: 1em;  
+		z-index: 20; 
+	}
+}
+
+.alpha {
+	font-size: 2.5em; 
+	line-height: 1.2;
+} 
+
+.beta {
+	font-size: 2.1em; 
+	font-weight: 400; 
+	line-height: 1.2;
+}
+
+.gamma {
+	font-size: 1.7em;
+	font-weight: 400; 
+}
+
+.delta {
+	font-size: 1.5em;
+	font-weight: 400; 
+}
+ 
+.zeta {
+	font-size: 1em; 
+}
+
+.lead {
+	font-size: 1.15em; 
+	font-weight: 900; 
+	line-height: 1.5; 
+	margin-bottom: 2em; 
+}
+
+.wysiwyg-formatted {
+
+	h3, h4 {
+		font-size: 1.15em; 
+		font-weight: 900; 
+		margin-bottom: .3em;
+		margin-top: 1.25em; 
+	}
+
+}
+
+figcaption {
+	font-size: .95em; 
+}
+
+.page-header {
+	border-bottom: 1px solid @color-border;
+	padding-top: 2em;  
+	width: 100%; 
+	padding-bottom: 1.25em; 
+}
+
+.page-title {
+	margin-bottom: 0; 
+	margin-top: 0; 
+}
+
+@media(min-width: @screen-s) {
+
+	.page-header {
+		padding-top: 3em; 
+	}
+
+	.alpha {
+		font-size: 4em; 
+	} 
+
+	.beta {
+		font-size: 3.2em; 
+	}
+
+	.gamma {
+		font-size: 3em;
+	}
+
+	.delta {
+		font-size: 2em;
+	}
+	 
+	.zeta {
+		font-size: 1.2em; 
+	}	
+
+}
