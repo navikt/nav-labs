@@ -1,0 +1,73 @@
+.colophon {
+	color: @color-text-inverted; 
+	background-color: @color-colophon-background; 
+	padding-top: 4em;
+	padding-bottom: 4em;
+	text-align: center;
+}
+
+.colophon a {
+	color: @color-text-inverted; 
+	border-bottom-color: transparent;
+}
+
+.colophon a:hover {
+	color: @color-text-inverted;
+	border-bottom-color: @color-text-inverted; 
+}
+
+.colophon-title {
+	font-size: 1em;
+	padding-bottom: 1em;
+	margin-bottom: 1em; 
+	margin-top: 0;
+	font-weight: 400; 
+	position: relative;
+	text-transform: uppercase; 
+
+	a {
+		border-bottom-color: transparent;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%; 
+		width: 1em;
+		height: 1px;
+		background-color: @color-colophon-border;
+		transform: translateX(-50%);
+	} 
+}
+
+.colophon li {
+	font-size: .875em;
+	margin-right: 1em;
+	padding-left: 1em; 
+	position: relative;
+}
+
+.colophon li:after {
+	content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: @color-colophon-border;
+    display: inline-block;
+    right: -1em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-25%);
+}
+
+.colophon li:last-child:after {
+	display: none;
+	visibility: hidden;
+}
+
+.colophon p {
+	color: @color-colophon-border;
+	font-size: .75em;
+	margin-top: 2em;
+}

@@ -20,11 +20,7 @@
           <immutable>false</immutable>
           <indexed>true</indexed>
           <occurrences minimum="0" maximum="1"/>
-        </input>
-        <input name="images" type="ImageSelector">
-          <label>Bilder</label>
-          <occurrences minimum="0" maximum="10"/>
-        </input>         
+        </input>        
       </items>
     </field-set>
   </form>

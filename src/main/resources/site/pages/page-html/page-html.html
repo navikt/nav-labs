@@ -18,10 +18,25 @@
 	            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
 	        </div>
 	    </div>
-	    <footer class="container container--spaced" data-portal-region="footer">
-	        <div data-th-if="${footerRegion and footerRegion.components}" data-th-each="component : ${footerRegion.components}" data-th-remove="tag">
-	            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
-	        </div>
+	    <footer data-portal-region="footer">
+	    	<div class="container container--spaced">
+		        <div data-th-if="${footerRegion and footerRegion.components}" data-th-each="component : ${footerRegion.components}" data-th-remove="tag">
+		            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+		        </div>
+		    </div>
+		    <div class="colophon">
+		    	<div class="container">
+		    		<h2 class="colophon-title">
+		    			<a data-th-text="${siteTitle}" data-th-href="${siteUrl}"></a>
+		    		</h2>
+		    		<ul class="pills pills--centered">
+						<li data-th-each="link : ${footerLinks}">
+							<a href="#" data-th-text="${link.text}" data-th-href="${link.url}"></a>	
+						</li>
+					</ul>
+					<p data-th-text="${departmentNameAndYear}"></p>
+		    	</div>
+		    </div>
 	    </footer>  
 	    <script data-th-src="${portal.assetUrl({'_path=main.js'})}"></script> 
 	    <script>
@@ -32,7 +47,6 @@
 
 		  ga('create', 'UA-9127381-19', 'auto');
 		  ga('send', 'pageview');
-
 		</script> 
 	</body>
 </html>

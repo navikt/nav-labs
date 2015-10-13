@@ -17,19 +17,33 @@
 	padding-bottom: 4em, 
 }
 
-.sidebar-figure {
-	img {
-		max-width: 100%;
-		height: auto; 
-	}
-
-	margin-bottom: 2em; 
-}
-
 figure {
 	padding: 0; 
 	margin-left: 0; 
 	margin-right: 0; 
+}
+
+figcaption {
+	font-style: italic; 
+	font-size: .875em;
+	margin-top: .35em; 
+}
+
+@media(min-width: 767px) {
+
+	.article-content {
+		width: 66%; 
+	}
+
+	.article-content figure {
+		width: 150%; 
+	}
+
+}
+
+.article-content figure {
+	margin-top: 2em; 
+	margin-bottom: 2em; 
 }
 
 hr {

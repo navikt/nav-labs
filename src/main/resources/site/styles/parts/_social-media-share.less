@@ -21,12 +21,15 @@
 	}
 }
 
-.share:hover {
-	background-color: @color-link; 
-}
-
 .share:focus {
 	border-color: @color-link; 
+	outline: none; 
+	box-shadow: 0 0 0 3px @color-focus; 
+	background-color: @color-body-background;
+}
+
+.share:hover, .share:focus:hover {
+	background-color: @color-link; 
 }
 
 .share-twitter {
