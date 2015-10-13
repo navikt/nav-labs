@@ -5,19 +5,20 @@ var content = require('/lib/xp/content');
 exports.get = function() {
 
   var archiveContent = portal.getContent(); 
-  var archivedContents; 
+  var hits = [];
 
   if(archiveContent.hasChildren) {
     archivedContents = content.getChildren({
       key: archiveContent._path
     });
+    hits = archivedContents.hits; 
   }
 
   var view = resolve('content-archive.html');
 
   var body = thymeleaf.render(view, {
       content: archiveContent,
-      archivedContents: archivedContents.hits
+      archivedContents: hits
   });
 
   // Return the result
