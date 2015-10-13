@@ -13,37 +13,29 @@ exports.get = function() {
 
   var tests = utils.getContentKeys(component.config.test);
 
-  if(tests.length > 0) {
+  tests = tests.map(function(testObject) {
+    var image = null; 
 
-    tests = tests.map(function(testObject) {
+    if(testObject.image) {
+      image = content.get({
+        key: testObject.image
+      });
+    } 
 
-        var image = null; 
+    var test = new TestModel(testObject["related-test"]);
+    var badgeHtml = thymeleaf.render(badgeView, test);
 
-        if(testObject.image) {
-          image = content.get({
-            key: testObject.image
-          });
-        } 
+    return { 
+      test: test,
+      image: image,
+      badgeHtml: badgeHtml
+    }
+  }); 
 
-        var test = new TestModel(testObject["related-test"]);
-
-        var badgeHtml = thymeleaf.render(badgeView, test);
-
-        return { 
-          test: test,
-          image: image,
-          badgeHtml: badgeHtml
-        }
-      }); 
-
-
-    body = thymeleaf.render(view, {
-      sectionTitle: component.config.sectionTitle || "Hjelp oss å teste",
-      tests: tests
-    });
-  } else {
-    body = "<p>Velg noen tester som du vil vise på forsiden.</p>"
-  }
+  body = thymeleaf.render(view, {
+    sectionTitle: component.config.sectionTitle || "Hjelp oss å teste",
+    tests: tests
+  });
 
   return {
     body: body,

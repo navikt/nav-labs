@@ -19,7 +19,10 @@ var statusesFormatted = {
 }; 
 
 var TestModel = function(key) {
-	ContentModel.call(this, key);
+	ContentModel.call(this, key, "Tittel kommer her", {
+    body: "<p>Innhold kommer her</p>",
+    introduction: "Ingress kommer her"
+  });
 	ContentModel.prototype.setPublishDateFormatted.call(this);
 	this.setDays(); 
 	this.setStatus();

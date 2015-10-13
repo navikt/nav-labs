@@ -7,7 +7,7 @@ exports.get = function() {
 
 	var view = resolve('frontpage-articles.html');
 	var body = "<p>Velg noen artikler du vil vise på forsiden</p>";
-	
+
 	var component = portal.getComponent();
 	var articleKeys = utils.getContentKeys(component.config["related-article"]);
 
@@ -17,12 +17,10 @@ exports.get = function() {
 		return article
 	});
 
-	if(articles.length) {
-		body = thymeleaf.render(view, {
-			sectionTitle: component.config.sectionTitle || "Artikler",
-			articles: articles
-		});
-	}
+	body = thymeleaf.render(view, {
+		sectionTitle: component.config.sectionTitle || "Artikler",
+		articles: articles
+	});
 
 	return {
 		body: body,

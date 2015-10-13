@@ -8,17 +8,16 @@ exports.get = function() {
 	var model = {}; 
 
 	var siteConfig = portal.getSiteConfig(); 
-
 	var site = portal.getSite(); 
+	
+	model.title = site.displayName;
 
-	model.title = siteConfig["site-title"];
 	model.homeUrl = portal.pageUrl({
 		path: site._path,
 		type: "absolute"
 	});
 
 	var body = thymeleaf.render(view, model);
-	
 
 	return {
 		body: body,

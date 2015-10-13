@@ -7,10 +7,10 @@ var TestModel = require("/lib/TestModel.js");
 exports.get = function() {
 
   var view = resolve('thank-you.html');
-  var component = portal.getComponent();
-  var content = portal.getContent();
+  var model = portal.getContent();
 
-  var model = content;
+  model.displayName = model.displayName === "" ? "Tittel kommer her" : model.displayName;
+  model.data.body = model.data.body || "<p>Tekst kommer her.</p>";
   var body = thymeleaf.render(view, model);
 
   return {

@@ -6,12 +6,12 @@ exports.get = function() {
 
   var testModel = new TestModel(); 
 
-  utils.log(JSON.stringify(testModel));
-
   var view = resolve('test-show.html');
   var badgeView = resolve("../../views/status-badge.html");
 
-  var badgeHtml = thymeleaf.render(badgeView, testModel);
+  utils.log(testModel);
+
+  var badgeHtml = ""; // thymeleaf.render(badgeView, testModel);
 
   var body = thymeleaf.render(view, {
     test: testModel,

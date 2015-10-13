@@ -4,7 +4,7 @@
 	</h2>
 </div>
 
-<article data-th-each="frontpageTest : ${tests}" class="container--highlight">
+<article data-th-if="${tests.length}" data-th-each="frontpageTest : ${tests}" class="container--highlight">
 	<div class="container">
 		<div class="units-row frontpage-test">
 
