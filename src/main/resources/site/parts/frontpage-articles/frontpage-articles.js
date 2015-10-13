@@ -7,10 +7,9 @@ exports.get = function() {
 
 	var view = resolve('frontpage-articles.html');
 	var body = "<p>Velg noen artikler du vil vise på forsiden</p>";
-
+	
 	var component = portal.getComponent();
 	var articleKeys = utils.getContentKeys(component.config["related-article"]);
-
 
 	var articles = articleKeys.map(function(key) {
 		var article = new ContentModel(key);

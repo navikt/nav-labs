@@ -23,7 +23,7 @@ exports.get = function() {
           image = content.get({
             key: testObject.image
           });
-        }
+        } 
 
         var test = new TestModel(testObject["related-test"]);
 

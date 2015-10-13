@@ -16,6 +16,8 @@ module.exports = {
         keys = [contentKeys]
         } else if(typeof contentKeys === "object" && contentKeys.length) {
           keys = contentKeys; 
+        } else if(JSON.stringify(contentKeys) === "{}") {
+          keys = [];
         } else {
           keys [contentKeys];
         }
