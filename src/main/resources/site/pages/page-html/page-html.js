@@ -1,5 +1,6 @@
 var portal = require('/lib/xp/portal'); 
 var thymeleaf = require('/lib/xp/thymeleaf');
+var utils = require("/lib/utilities.js");
 
 exports.get = function(req) { 
 
@@ -13,17 +14,20 @@ exports.get = function(req) {
   var mainRegion = content.page.regions.main;
   var footerRegion = content.page.regions.footer;
 
-  var siteTitle = siteConfig.siteTitle;
+  var siteTitle = site.displayName;
   var siteUrl = portal.pageUrl({
     path: site._path,
     type: "absolute"
   });
 
+  var footerLinks = siteConfig.footerLinks;
+  footerLinks = typeof footerLinks === "object" && footerLinks.length === undefined ? [footerLinks] : footerLinks;
+
   var model = { 
       mainRegion: mainRegion,
       headerRegion: headerRegion, 
       footerRegion: footerRegion,
-      footerLinks: siteConfig.footerLinks,
+      footerLinks: footerLinks,
       pageTitle: content.displayName ? content.displayName + ' | ' + siteTitle : siteTitle,
       language: content.language || "no",
       siteTitle: siteTitle,
