@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:client:styles": "lessc styles/styles.less --autoprefix --clean-css > assets/styles.css",
-    "watch:client": "parallelshell \"npm run watch:client:css\" \"npm run watch:client:scripts\"",
     "watch:client:styles": "nodemon -q -w styles --ext 'less' --exec 'npm run build:client:styles'",
-    "watch:client:scripts": "nodemon -q -w scripts --ext 'js' --exec 'npm run copy:client:scripts'",
-    "copy:client:scripts": "cp scripts/main.js assets/main.js",
-    "watch": "parallelshell \"npm run watch:client:scripts\" \"npm run watch:client:styles\""
+    "watch:client:scripts": "nodemon -q -w scripts --ext 'js' --exec 'npm run build:client:scripts'",
+    "build:client:scripts": "cp scripts/main.js assets/main.js",
+    "build:client:styles": "lessc styles/styles.less --autoprefix --clean-css > assets/styles.css",    
+    "watch": "parallelshell \"npm run watch:client:scripts\" \"npm run watch:client:styles\"",
+    "build": "parallelshell \"npm run build:client:scripts\" \"npm run build:client:styles\""
   },
   "author": "",
   "license": "ISC",
