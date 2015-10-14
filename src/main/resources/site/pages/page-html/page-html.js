@@ -28,7 +28,7 @@ exports.get = function(req) {
       headerRegion: headerRegion, 
       footerRegion: footerRegion,
       footerLinks: footerLinks,
-      pageTitle: content.displayName ? content.displayName + ' | ' + siteTitle : siteTitle,
+      pageTitle: content.displayName && content.displayName !== siteTitle && content.displayName !== "" ? content.displayName + ' | ' + siteTitle : siteTitle,
       language: content.language || "no",
       siteTitle: siteTitle,
       siteUrl: siteUrl,
