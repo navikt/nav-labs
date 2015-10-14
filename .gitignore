@@ -13,3 +13,4 @@ hs_err_pid*
 build
 .DS_Store
 .gradle/
+node_modules
