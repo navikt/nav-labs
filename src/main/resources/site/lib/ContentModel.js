@@ -12,7 +12,6 @@ var ContentModel = function(key, displayName, defaults) {
 		});
 	} else {
 		data = portal.getContent(); 
-		utils.log(data);
 	}
 	for(var d in data) {
 		this[d] = data[d]
