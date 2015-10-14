@@ -8,7 +8,7 @@ exports.get = function() {
   var hits = [];
 
   if(archiveContent.hasChildren) {
-    archivedContents = content.getChildren({
+    var archivedContents = content.getChildren({
       key: archiveContent._path
     });
     hits = archivedContents.hits; 
