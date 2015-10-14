@@ -4,7 +4,7 @@
 		<span data-th-text="${sectionTitle}"></span>
 	</h2>
 
-	<article data-th-if="${articles.length}" data-th-each="article : ${articles}" class="frontpage-article">
+	<article data-th-each="article : ${articles}" class="frontpage-article">
 
 		<a href="#" data-th-href="${portal.pageUrl({'_path=' + article._path})}">
 			<p data-th-text="${article.publishDateFormatted}"></p>
