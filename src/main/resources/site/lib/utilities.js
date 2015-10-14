@@ -19,7 +19,7 @@ module.exports = {
         } else if(JSON.stringify(contentKeys) === "{}") {
           keys = [];
         } else {
-          keys [contentKeys];
+          keys = [contentKeys];
         }
       } else {
         keys = [];
