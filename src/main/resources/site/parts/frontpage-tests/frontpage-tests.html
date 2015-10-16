@@ -30,7 +30,7 @@
 					<a href="#" data-th-href="${portal.pageUrl({'_path=' + frontpageTest.test._path})}">Les mer om testen</a>
 				</p>
 
-				<p>
+				<p data-th-if="${frontpageTest.test.displayTest}">
 					<a class="btn" target="_blank" href="#" data-th-href="${frontpageTest.test.data.testUrl}">Start testen</a>
 				</p>
 
