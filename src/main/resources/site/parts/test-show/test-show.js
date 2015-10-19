@@ -9,7 +9,7 @@ exports.get = function() {
   var view = resolve('test-show.html');
   var badgeView = resolve("../../views/status-badge.html");
 
-  var badgeHtml = ""; // thymeleaf.render(badgeView, testModel);
+  var badgeHtml = thymeleaf.render(badgeView, testModel);
 
   var body = thymeleaf.render(view, {
     test: testModel,
