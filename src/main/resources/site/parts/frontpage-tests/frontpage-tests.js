@@ -23,6 +23,7 @@ exports.get = function() {
     } 
 
     var test = new TestModel(testObject["related-test"]);
+
     var badgeHtml = thymeleaf.render(badgeView, test);
 
     return { 
