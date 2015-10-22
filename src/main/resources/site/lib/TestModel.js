@@ -32,14 +32,26 @@ var TestModel = function(key) {
 
 TestModel.prototype.setDays = function () {
     var expiryMoment = moment(this.data.expiryDate);
-    var daysToExpiry = expiryMoment.diff(moment(), "days");
+    var daysToExpiry = expiryMoment.diff(moment().startOf("day"), "days"); 
     this.daysToExpiry = daysToExpiry !== undefined ? daysToExpiry + "" : "0";
+    this.daysToExpiryLabel = this.daysToExpiry === "1" ? "1 dag" : this.daysToExpiry + " dager"
     return this; 
 };
 
 TestModel.prototype.setStatus = function() {
-	var s = this.data.status; 
-	this.status = statusesFormatted[s];
+  var isFinished = this.data.isFinished;
+  var status;
+  if(isFinished) {
+    status = "finished";
+    this.daysToExpiry = "0"; 
+  } else {
+    if(Number(this.daysToExpiry) > 0) {
+      status = "testing";
+    } else {
+      status = "analyzing"
+    }
+  }
+  this.status = statusesFormatted[status];
 	return this; 
 };
 
