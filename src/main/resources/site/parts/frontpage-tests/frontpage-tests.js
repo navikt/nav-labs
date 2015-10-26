@@ -22,14 +22,22 @@ exports.get = function() {
       });
     } 
 
-    var test = new TestModel(testObject["related-test"]);
+    if(!testObject["related-test"] || !testObject["image"]) {
+      return null; 
+    } else {
+      var test = new TestModel(testObject["related-test"]);
+      
+      if(test.isDeleted) {
+        return null;
+      } else {
+        var badgeHtml = thymeleaf.render(badgeView, test);
 
-    var badgeHtml = thymeleaf.render(badgeView, test);
-
-    return { 
-      test: test,
-      image: image,
-      badgeHtml: badgeHtml
+        return { 
+          test: test,
+          image: image,
+          badgeHtml: badgeHtml
+        }        
+      }
     }
   }); 
 

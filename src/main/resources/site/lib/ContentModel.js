@@ -13,18 +13,22 @@ var ContentModel = function(key, displayName, defaults) {
 	} else {
 		data = portal.getContent(); 
 	}
-	for(var d in data) {
-		this[d] = data[d]
-	}
-
-	defaults = defaults || ContentModel.prototype.defaults;
-
-	for(var p in defaults) {
-		if(!this.data[p] || this.data[p] === "") {
-			this.data[p] = defaults[p];
+	this.isDeleted = data === null; 
+	if(!this.isDeleted) {
+		for(var d in data) {
+			this[d] = data[d]
 		}
-	}
 
+		defaults = defaults || ContentModel.prototype.defaults;
+
+		for(var p in defaults) {
+			if(!this.data[p] || this.data[p] === "") {
+				this.data[p] = defaults[p];
+			}
+		}
+	} else {
+		this.didplayName = "Innholdet er slettet";
+	}
 	return this; 
 };
 

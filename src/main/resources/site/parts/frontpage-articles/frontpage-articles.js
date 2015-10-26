@@ -13,8 +13,12 @@ exports.get = function() {
 
 	var articles = articleKeys.map(function(key) {
 		var article = new ContentModel(key);
-		article.setPublishDateFormatted(); 
-		return article
+		if(article.isDeleted) {
+			return null; 
+		} else {
+			article.setPublishDateFormatted(); 
+			return article			
+		}
 	});
 
 	body = thymeleaf.render(view, {

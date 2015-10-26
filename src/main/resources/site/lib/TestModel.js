@@ -23,10 +23,12 @@ var TestModel = function(key) {
     body: "<p>Innhold kommer her</p>",
     introduction: "Ingress kommer her"
   });
-  this.displayTest = typeof this.data.testUrl === "string" && this.data.testUrl.trim() !== "";
-	ContentModel.prototype.setPublishDateFormatted.call(this);
-	this.setDays(); 
-	this.setStatus();
+  if(!this.isDeleted) {
+    this.displayTest = typeof this.data.testUrl === "string" && this.data.testUrl.trim() !== "";
+    ContentModel.prototype.setPublishDateFormatted.call(this);
+    this.setDays(); 
+    this.setStatus();    
+  }
 	return this; 
 };
 
