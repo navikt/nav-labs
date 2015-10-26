@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html data-th-lang="${language}">
-	<head>
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 	  <meta charset="utf-8"/>
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 	  <link data-th-href="${portal.assetUrl({'_path=styles.css'})}" href="../assets/css/nav-labs.css" rel="stylesheet"/> 
 	  <title data-th-text="${pageTitle}"></title>
+	  <meta property="fb:app_id" data-th-attr="content=${share.facebookAppId}" /> 
+	  <meta property="og:type"   content="article" /> 
+	  <meta property="og:site_name" data-th-attr="content=${share.siteTitle}"/>
+	  <meta property="og:url"    data-th-attr="content=${share.url}" />
+	  <meta property="og:title"  data-th-attr="content=${share.title}" /> 
+	  <meta property="og:image"  data-th-if="${share.image}" data-th-attr="content=${share.image}" />
+	  <meta property="og:description" data-th-attr="content=${share.description}" />
 	</head>
     
 	<body class="page">

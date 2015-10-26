@@ -41,7 +41,13 @@
         <input name="isFinished" type="CheckBox">
           <label>Testen er ferdig</label>
           <occurrences minimum="0" maximum="1"/>
-        </input>       
+        </input>         
+      </items>
+    </field-set> 
+    <field-set name="social-media">
+      <label>Deling i sosiale medier</label>
+      <items>
+        <inline mixin="social-media"/>
       </items>
     </field-set>
   </form>

@@ -20,6 +20,27 @@ exports.get = function(req) {
     type: "absolute"
   });
 
+  // sharing
+
+  var shareImageKey = content.data.socialMediaImage || "123";
+  var shareImage = (function() {
+    if(content.data.socialMediaImage) {
+      return portal.imageUrl({
+        id: content.data.socialMediaImage,
+        scale: 'width(700)',
+        type: 'absolute'
+      });
+    } else {
+      return null; 
+    }
+  })();
+  var shareUrl = portal.pageUrl({
+    path: content._path,
+    type: "absolute"
+  });
+
+  // footer
+
   var footerLinks = siteConfig.footerLinks;
   footerLinks = typeof footerLinks === "object" && footerLinks.length === undefined ? [footerLinks] : footerLinks;
 
@@ -32,7 +53,15 @@ exports.get = function(req) {
       language: content.language || "no",
       siteTitle: siteTitle,
       siteUrl: siteUrl,
-      departmentNameAndYear: siteConfig.departmentName || "Arbeids- og velferdsetaten" + " " + new Date().getFullYear()
+      departmentNameAndYear: siteConfig.departmentName || "Arbeids- og velferdsetaten" + " " + new Date().getFullYear(),
+      share: {
+        title: content.data.socialMediaTitle || content.displayName || siteTitle,
+        description: content.data.socialMediaIntroduction,
+        image: shareImage,
+        url: shareUrl,
+        siteTitle: siteTitle,
+        facebookAppId: "123"
+      }
   };
 
   var body = thymeleaf.render(view, model);

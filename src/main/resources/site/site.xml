@@ -2,21 +2,25 @@
 <site>
   <config>
     <field-set name="info">
-      <label>Info</label>
+      <label>Sosiale medier</label>
       <items>
         <input type="TextLine" name="disqusShortName">
           <label>Disqus short name</label>
           <occurrences minimum="1" maximum="1"/>
         </input> 
-        <input type="TextLine" name="departmentName">
-          <label>Navn på etaten</label>
-          <occurrences minimum="1" maximum="1"/>
-        </input>                 
+        <input type="TextLine" name="facebookAppId">
+          <label>Facebook App ID</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>                             
       </items>
     </field-set>
     <field-set name="footer">
       <label>Footer</label>
       <items>      
+        <input type="TextLine" name="departmentName">
+          <label>Navn på etaten</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>        
         <item-set name="footerLinks">
           <label>Lenke i footer</label>
           <items>
