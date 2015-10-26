@@ -60,7 +60,7 @@ exports.get = function(req) {
         image: shareImage,
         url: shareUrl,
         siteTitle: siteTitle,
-        facebookAppId: "123"
+        facebookAppId: siteConfig.facebookAppId || null
       }
   };
 

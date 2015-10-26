@@ -15,7 +15,13 @@ exports.get = function() {
 		});
 	}
 
-	var body = thymeleaf.render(view, utils.getShareModel(result));
+	var body; 
+
+	if(!result) {
+		body = ""; 
+	} else {
+		body = thymeleaf.render(view, utils.getShareModel(result));
+	}
 
 	return {
 		body: body,
