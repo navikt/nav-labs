@@ -8,9 +8,10 @@ exports.get = function() {
 
   var view = resolve('thank-you.html');
   var model = portal.getContent();
+  var siteConfig = portal.getSiteConfig(); 
 
   model.displayName = model.displayName === "" ? "Tittel kommer her" : model.displayName;
-  model.data.body = model.data.body || "<p>Tekst kommer her.</p>";
+  model.data.body = model.data.body || siteConfig.defualtThankYouText || "<p>Tekst kommer her.</p>";
   var body = thymeleaf.render(view, model);
 
   return {
