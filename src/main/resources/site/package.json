@@ -3,24 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "watch:client:styles": "nodemon -q -w styles --ext 'less' --exec 'npm run build:client:styles'",
-    "watch:client:scripts": "nodemon -q -w scripts --ext 'js' --exec 'npm run build:client:scripts'",
-    "build:client:scripts": "cp scripts/main.js assets/main.js",
-    "build:client:styles": "lessc styles/styles.less --autoprefix --clean-css > assets/styles.css",    
-    "watch": "parallelshell \"npm run watch:client:scripts\" \"npm run watch:client:styles\"",
-    "build": "parallelshell \"npm run build:client:scripts\" \"npm run build:client:styles\""
-  },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "clean-css": "^3.4.6",
-    "less": "^2.5.1",
-    "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1"
-  },
   "dependencies": {
-    "browserify": "^11.1.0",
     "moment": "^2.10.6"
   }
 }

@@ -1,9 +1,36 @@
-<header class="global-navigation" role="menubar">
-	<div class="container">
-		<h1>
-			<a data-th-href="${homeUrl}" data-th-text="|${title}|"></a>
-		</h1>
-
-		<a role="nav" class="nav-back" data-th-href="${homeUrl}">Tilbake til forsiden</a>
-	</div>
-</header>
+<div class="global-top" id="js-fixed-top">
+	<header class="global-menubar" role="menubar">
+		<div class="container container--global-navigation">
+			<h1 class="logo-container">
+				<a class="site-logo" data-th-href="${homeUrl}">
+					<img width="67" height="42" alt="NAV-logo" data-th-src="${portal.assetUrl({'_path=icons/nav-logo-white.png'})}" />
+					<span data-th-text="|${title}|"></span>
+				</a>
+			</h1>
+			<div class="burger-container">
+				<button class="toggle-menu" aria-pressed="false" id="js-toggle-menu-button">Meny <i class="burger-icon"></i></button>
+			</div>
+		</div>
+	</header>
+	<nav class="global-menu" id="js-global-menu">
+		<div class="container" aria-labelledby="toggle-menu-button">
+			<div class="units-row end">
+				<div class="unit-50">
+					<a href="artikler" class="nav-hero-button">
+						<h2>Tester</h2>
+						<p>Test 1</p>
+					</a>
+				</div>
+				<div class="unit-50">
+					<a href="tester" class="nav-hero-button">
+						<h2>Artikler</h2>
+						<p>Test 2</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<script>
+		document.getElementById("js-global-menu").style.display = "none";
+	</script>
+</div>

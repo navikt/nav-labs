@@ -1,5 +1,6 @@
 (function() {
 
+	// SOCIAL MEDIA
 	var openWindow = function(e) {
 
 		if(e && e.preventDefault) {
@@ -29,5 +30,7 @@
 	for(var i = 0; i < socialMediaElements.length; i++) {
 		socialMediaElements[i].addEventListener("click", openWindow);
 	}
+
+
 
 })(); 

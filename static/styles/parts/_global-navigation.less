@@ -1,0 +1,153 @@
+.global-top {
+	position: fixed;
+	width: 100%; 
+}
+
+.global-menubar {
+
+	background-color: @color-global-navigation-background; 
+	padding-top: 1em; 
+	padding-bottom: 1em;
+
+	a, a:visited {
+		color: @color-text-inverted;
+		border-bottom-width: 0
+	}
+
+	a:hover {
+		color: @color-text-inverted;
+		border-bottom-color: @color-body-background;
+		text-decoration: underline; 
+	}
+
+	a:focus {
+		box-shadow: 0 0 0 4px @color-focus;
+	}
+
+}
+
+.global-menu {
+	background-color: @color-highlight-background;
+	padding-top: 1em;
+	padding-bottom: 1em; 
+
+	.units-row .unit-50:last-child {
+		margin-bottom: 0; 
+	}
+}
+
+.container--global-navigation {
+	display: table
+}
+
+.logo-container, .burger-container {
+	display: table-cell;
+	vertical-align: middle; 
+}
+
+.logo-container { 
+	font-size: 1em; 
+	color: @color-text-inverted;
+	margin-top: 0; 
+	margin-bottom: 0; 
+}
+
+.site-logo {
+	display: table;
+	font-size: 1.5em; 
+	font-weight: 300; 
+
+	> * {
+		display: table-cell;
+		vertical-align: middle; 
+	}
+
+	img {
+		margin-right: .25em; 
+	}
+}
+
+.burger-container {
+	text-align: right; 
+}
+
+.toggle-menu {
+	font-size: .8em; 
+	display: inline-block; 
+	-webkit-appearance: none;
+	border: 0; 
+	padding: 0; 
+	position: relative;
+	background-color: transparent;
+	text-transform: uppercase; 
+	color: #fff; 
+
+	&:focus {
+		outline: none; 
+		color: @color-global-navigation-background;
+		box-shadow: 0 0 0 3px @color-focus; 
+		background-color: @color-focus;
+	}
+
+	&:focus i, &:focus i:after, &:focus i:before {
+		background-color: @color-global-navigation-background;
+	}
+}
+
+.burger-icon {
+	position: relative;
+	transform: translateY(-100%);
+}
+
+.burger-icon, .burger-icon:before, .burger-icon:after {
+	background-color: #fff;
+	width: 2em; 
+	height: 3px; 	
+	display: inline-block;
+	transition: transform ease-in-out 150ms; 
+}
+
+.burger-icon:before, .burger-icon:after {
+	content: "";
+	position: absolute;
+	left: 0; 
+}
+
+.burger-icon:before {
+	transform: translateY(-200%); 
+}
+
+.burger-icon:after {
+	transform: translateY(200%); 
+}
+
+.toggle-menu:hover, .toggle-menu:focus {
+
+	.burger-icon:before {
+		transform: translateY(-250%); 
+	}
+	.burger-icon:after {
+		transform: translateY(250%); 
+	}
+}
+
+.nav-hero-button {
+	border: 8px solid @color-border; 
+	color: @color-text; 
+	text-align: center; 
+	display: block; 
+	background-color: @color-body-background;
+
+	&:hover {
+		border-color: @color-link; 
+	}
+
+	&:focus {
+		border-color: @color-border; 
+	}
+
+	&:active {
+		border-color: @color-text; 
+	}
+
+}
