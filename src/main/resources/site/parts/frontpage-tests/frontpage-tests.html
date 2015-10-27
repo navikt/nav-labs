@@ -1,7 +1,7 @@
 <div class="container">
-	<h2 class="section-title">
+	<h3 class="section-title">
 		<span data-th-text="${sectionTitle}"></span>
-	</h2>
+	</h3>
 </div>
 
 <article data-th-each="frontpageTest : ${tests}" class="container--highlight">
@@ -18,9 +18,9 @@
 
 				<p data-th-text="${frontpageTest.test.publishDateFormatted}"></p>
 
-				<h3 class="delta frontpage-test-title">
+				<h4 class="delta frontpage-test-title">
 					<a href="#" data-th-text="${frontpageTest.test.displayName}" data-th-href="${portal.pageUrl({'_path=' + frontpageTest.test._path})}"></a>
-				</h3>
+				</h4>
 
 				<span data-th-utext="${frontpageTest.badgeHtml}"></span>
 

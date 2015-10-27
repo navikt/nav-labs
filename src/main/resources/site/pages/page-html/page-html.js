@@ -1,6 +1,7 @@
 var portal = require('/lib/xp/portal'); 
 var thymeleaf = require('/lib/xp/thymeleaf');
 var utils = require("/lib/utilities.js"); 
+var ContentModel = require("/lib/ContentModel.js"); 
 
 exports.get = function(req) { 
 
@@ -22,7 +23,6 @@ exports.get = function(req) {
 
   // sharing
 
-  var shareImageKey = content.data.socialMediaImage || "123";
   var shareImage = (function() {
     if(content.data.socialMediaImage) {
       return portal.imageUrl({
@@ -37,6 +37,26 @@ exports.get = function(req) {
   var shareUrl = portal.pageUrl({
     path: content._path,
     type: "absolute"
+  });
+
+  // global menu
+
+  var globalMenuItems = siteConfig.globalMenuItems;
+  globalMenuItems = typeof globalMenuItems === "object" && globalMenuItems.length === undefined ? [globalMenuItems] : globalMenuItems;
+
+  globalMenuItems = globalMenuItems.map(function(item) {
+    var contentModel = new ContentModel(item.menuItem);
+    if(contentModel.isDeleted) {
+      return null;
+    } else {
+      return {
+        text: item.text,
+        url: portal.pageUrl({
+          path: contentModel._path
+        }),
+        isActive: contentModel._path === content._path
+      }      
+    }
   });
 
   // footer
@@ -54,6 +74,10 @@ exports.get = function(req) {
       siteTitle: siteTitle,
       siteUrl: siteUrl,
       departmentNameAndYear: siteConfig.departmentName || "Arbeids- og velferdsetaten" + " " + new Date().getFullYear(),
+      header: {
+        typoLogo: siteConfig.logoTypoText || "Lab.",
+        menuItems: globalMenuItems
+      },
       share: {
         title: content.data.socialMediaTitle || content.displayName || siteTitle,
         description: content.data.socialMediaIntroduction,

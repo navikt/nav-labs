@@ -1,23 +1,20 @@
 .global-top {
 	position: fixed;
 	width: 100%; 
+	z-index: @z-index-global-top; 
 }
 
 .global-menubar {
 
 	background-color: @color-global-navigation-background; 
-	padding-top: 1em; 
-	padding-bottom: 1em;
 
 	a, a:visited {
-		color: @color-text-inverted;
+		color: @color-text;
 		border-bottom-width: 0
 	}
 
 	a:hover {
-		color: @color-text-inverted;
-		border-bottom-color: @color-body-background;
-		text-decoration: underline; 
+		color: @color-text;
 	}
 
 	a:focus {
@@ -26,27 +23,19 @@
 
 }
 
-.global-menu {
-	background-color: @color-highlight-background;
-	padding-top: 1em;
-	padding-bottom: 1em; 
-
-	.units-row .unit-50:last-child {
-		margin-bottom: 0; 
-	}
-}
-
 .container--global-navigation {
 	display: table
 }
 
-.logo-container, .burger-container {
+.logo-container, .menu-container {
 	display: table-cell;
 	vertical-align: middle; 
 }
 
 .logo-container { 
 	font-size: 1em; 
+	padding-top: 1em; 
+	padding-bottom: 1em; 
 	color: @color-text-inverted;
 	margin-top: 0; 
 	margin-bottom: 0; 
@@ -55,7 +44,11 @@
 .site-logo {
 	display: table;
 	font-size: 1.5em; 
-	font-weight: 300; 
+	font-weight: 600; 
+
+	a:hover {
+		text-decoration: underline; 
+	}
 
 	> * {
 		display: table-cell;
@@ -67,87 +60,57 @@
 	}
 }
 
-.burger-container {
+.menu-container {
 	text-align: right; 
-}
-
-.toggle-menu {
-	font-size: .8em; 
-	display: inline-block; 
-	-webkit-appearance: none;
-	border: 0; 
-	padding: 0; 
 	position: relative;
-	background-color: transparent;
-	text-transform: uppercase; 
-	color: #fff; 
+}
 
-	&:focus {
-		outline: none; 
-		color: @color-global-navigation-background;
-		box-shadow: 0 0 0 3px @color-focus; 
-		background-color: @color-focus;
+.pills--global-menu {
+	font-size: 1em;
+
+	li {
+		margin-left: .65em; 
 	}
 
-	&:focus i, &:focus i:after, &:focus i:before {
-		background-color: @color-global-navigation-background;
+	a {
+		display: inline-block; 
+		position: relative;
 	}
-}
 
-.burger-icon {
-	position: relative;
-	transform: translateY(-100%);
-}
-
-.burger-icon, .burger-icon:before, .burger-icon:after {
-	background-color: #fff;
-	width: 2em; 
-	height: 3px; 	
-	display: inline-block;
-	transition: transform ease-in-out 150ms; 
-}
-
-.burger-icon:before, .burger-icon:after {
-	content: "";
-	position: absolute;
-	left: 0; 
-}
-
-.burger-icon:before {
-	transform: translateY(-200%); 
-}
-
-.burger-icon:after {
-	transform: translateY(200%); 
-}
-
-.toggle-menu:hover, .toggle-menu:focus {
-
-	.burger-icon:before {
-		transform: translateY(-250%); 
+	a:before {
+		content: "";
+		display: inline-block;
+		width: 100%; 
+		height: .4em;
+		position: absolute;
+		top: -135%; 
+		left: 0; 
+		background-color: @color-branding; 
+		opacity: 0; 
+		transition: all 200ms ease-in-out; 
 	}
-	.burger-icon:after {
-		transform: translateY(250%); 
+
+	a:hover:before, a:active:before, .is-active:before {
+		opacity: 1; 
+		top: -120%; 
+	}
+
+	.is-active {
+		font-weight: 600; 
 	}
 }
 
-.nav-hero-button {
-	border: 8px solid @color-border; 
-	color: @color-text; 
-	text-align: center; 
-	display: block; 
-	background-color: @color-body-background;
+@media(min-width: @screen-s) {
+	.pills--global-menu {
+		font-size: 1.2em; 
 
-	&:hover {
-		border-color: @color-link; 
+		li {
+			margin-left: 1.5em; 
+		}		
+
+		a:hover:before, a:active:before, .is-active:before {
+			top: -100%; 
+		}
+
 	}
-
-	&:focus {
-		border-color: @color-border; 
-	}
-
-	&:active {
-		border-color: @color-text; 
-	}
-
 }

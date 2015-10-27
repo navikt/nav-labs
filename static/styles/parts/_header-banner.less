@@ -1,8 +1,9 @@
 .header-banner {
 	display: block; 
-	padding-top: 1em; 
+	padding-top: 5em; 
 	padding-bottom: 1em; 
 	text-align: center; 
+	margin-top: -74px;
 	
 
 	.highlight {
@@ -35,34 +36,40 @@
 	text-align: center; 
 	font-size: 1.3em; 
 	max-width: 22em; 
-	margin: 0 auto 4em auto; 
+	margin: 0 auto; 
 	font-weight: 700; 
 }
 
-.header-information {
-	text-align: left; 
-	margin-bottom: 3em; 
-
-	strong {
-		font-size: 1.3em; 		
-	}
-}
-
-@media(min-width: @screen-xs) {
+@media(min-width: @screen-m) {
 	.header-banner {
 		background: url('images/header.png') no-repeat top left;
-		background-size: 72%; 		
+		background-size: 72%; 	
+		padding-bottom: 3em; 	
 	}	
-}
-
-@media(min-width: @screen-m) {
 
 	.header-branding {
 		margin-top: 1.2em; 
 		font-size: 4.7em; 
-	}
+	}	
+}
 
-	.header-tagline {
-		margin-bottom: 8em;
+@media(min-width: @screen-l) {
+	.header-banner {
+		padding-bottom: 4em; 	
+		background-size: 75%; 		
+	} 
+} 
+
+@media(min-width: @screen-xl) {
+	.header-banner {
+		padding-bottom: 4em; 
+		background-size: 70%; 			
+	}
+}
+
+@media(min-width: @screen-xxl) {
+	.header-banner {
+		padding-bottom: 4em; 
+		background-size: 53em; 			
 	}
 }

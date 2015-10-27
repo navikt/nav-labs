@@ -1,8 +1,0 @@
-<layout>
-  <display-name>50/50</display-name>
-  <config/>
-  <regions>
-    <region name="left"/>
-    <region name="right"/>
-  </regions>
-</layout>

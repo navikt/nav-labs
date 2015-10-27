@@ -1,0 +1,11 @@
+<relationship-type>
+  <display-name>Menu Item</display-name>
+  <from-semantic>relates to menu item</from-semantic>
+  <to-semantic>related of menu item</to-semantic>
+  <allowed-from-types/>
+  <allowed-to-types>
+    <content-type>base:folder</content-type>
+    <content-type>article</content-type>
+    <content-type>test</content-type>    
+  </allowed-to-types>
+</relationship-type>

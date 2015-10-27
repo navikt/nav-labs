@@ -1,10 +1,4 @@
 <part>
   <display-name>Header-banner</display-name>
-  <config>
-    <input name="headerDescription" type="HtmlArea">
-      <label>Informasjonstekst</label>
-      <occurrences minimum="2" maximum="2"/>
-    </input>
-  </config>
 </part>
 

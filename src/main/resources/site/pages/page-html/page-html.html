@@ -15,12 +15,24 @@
 	</head>
     
 	<body class="page">
-		<div data-portal-region="header">
-	        <div data-th-if="${headerRegion}" data-th-each="component : ${headerRegion.components}" data-th-remove="tag">
-	            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
-	        </div>			
+		<div class="global-top">
+			<header class="global-menubar">
+				<div class="container container--global-navigation">
+					<h1 class="logo-container">
+						<a class="site-logo" data-th-href="${siteUrl}">
+							<img width="67" height="42" alt="NAV" data-th-src="${portal.assetUrl({'_path=icons/nav-logo-red.png'})}" />
+							<span data-th-text="${header.typoLogo}"></span>
+						</a>
+					</h1>
+					<nav class="menu-container">
+						<ul class="pills pills--global-menu" role="menu">
+							<li data-th-each="item : ${header.menuItems}"><a data-th-class="${item.isActive} ? is-active : is-inactive" role="menuitem" data-th-text="${item.text}" data-th-href="${item.url}"></a></li>	
+						</ul>
+					</nav>
+				</div>
+			</header>
 		</div>
-	    <div data-portal-region="main" id="js-region-main">
+	    <div data-portal-region="main" class="main-region">
 	        <div data-th-if="${mainRegion}" data-th-each="component : ${mainRegion.components}" data-th-remove="tag">
 	            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
 	        </div>
