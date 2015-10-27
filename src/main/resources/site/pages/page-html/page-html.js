@@ -54,7 +54,7 @@ exports.get = function(req) {
         url: portal.pageUrl({
           path: contentModel._path
         }),
-        isActive: contentModel._path === content._path
+        isActive: content._path.indexOf(contentModel._path) > -1 
       }      
     }
   });
