@@ -1,0 +1,13 @@
+<part>
+  <display-name>Abonner på nyhetsbrev</display-name>
+  <config>
+	<input name="subscriptionType" type="ComboBox">
+	  <label>Abonnementtype</label>
+	  <occurrences minimum="1" maximum="10"/>
+	  <config>
+	    <option value="general">Generelt abonnement på Nav Lab</option>
+	    <option value="relatedTest">Relatert test</option>
+	  </config>
+	</input>
+  </config> 
+</part>

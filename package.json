@@ -7,7 +7,7 @@
     "watch:client:styles": "nodemon -q -w static/styles --ext 'less' --exec 'npm run build:client:styles'",
     "watch:client:scripts": "nodemon -q -w static/scripts --ext 'js' --exec 'npm run build:client:scripts'",
     "build:client:scripts": "cp static/scripts/main.js src/main/resources/site/assets/main.js",
-    "build:client:styles": "lessc static/styles/styles.less --autoprefix --clean-css > src/main/resources/site/assets/styles.css",    
+    "build:client:styles": "lessc static/styles/styles.less --autoprefix --clean-css > src/main/resources/site/assets/styles.css",
     "watch": "parallelshell \"npm run watch:client:scripts\" \"npm run watch:client:styles\"",
     "build": "parallelshell \"npm run build:client:scripts\" \"npm run build:client:styles\""
   },
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "browserify": "^11.1.0",
+    "mocha": "^2.3.3",
     "moment": "^2.10.6"
   }
 }

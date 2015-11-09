@@ -1,7 +1,7 @@
 var portal = require('/lib/xp/portal'); 
 var thymeleaf = require('/lib/xp/thymeleaf');
 var utils = require("/lib/utilities.js"); 
-var ContentModel = require("/lib/ContentModel.js"); 
+var ContentModel = require("/lib/ContentModel.js");
 
 exports.get = function(req) { 
 

@@ -9,9 +9,9 @@ exports.get = function() {
 
 	var result = portal.getContent(); 
 
-	if(result.data["content-to-share"]) {
+	if(result.data["testOfInterest"]) {
 		result = content.get({
-			key: result.data["content-to-share"]
+			key: result.data["testOfInterest"]
 		});
 	}
 

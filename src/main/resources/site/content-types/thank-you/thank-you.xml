@@ -17,7 +17,7 @@
         </input>
       </items>
     </field-set>
-    <input type="ContentSelector" name="content-to-share">
+    <input type="ContentSelector" name="testOfInterest">
       <label>Test</label>
       <immutable>false</immutable>
       <indexed>true</indexed>

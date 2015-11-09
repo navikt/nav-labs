@@ -1,0 +1,44 @@
+.input-text {
+	border: 1px solid @color-border;
+	padding: .3em .5em;
+	font-size: 1.2em; 
+	margin-bottom: .5em; 
+	width: 100%; 
+	box-sizing: border-box;
+	display: block;  
+
+	&:focus {
+		outline: none; 
+		box-shadow: 0 0 0 3px @color-focus; 
+		border-color: @color-text;
+	}
+
+	&:hover {
+		border-color: @color-link; 
+	}
+}
+
+label {
+	margin-bottom: .3em;
+}
+
+.input-l {
+	max-width: 30em;
+}
+
+.newsletter-form {
+	transition: opacity 300ms ease-in-out; 
+}
+
+.newsletter-message {
+	padding: 1em; 
+	background-color: @color-highlight-background;
+
+	.omega {
+		margin: 0 0 .25em 0; 
+	}
+
+	p {
+		margin: 0; 
+	}
+}
