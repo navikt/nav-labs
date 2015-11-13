@@ -127,7 +127,7 @@ exports.post = function(req) {
 			body: {
 				message: message,
 				title: title,
-				errorCode: isContentDeleted ? 1 : null
+				success: isMailSent && !isContentDeleted
 			},
 			contentType: 'application/json'
 		};

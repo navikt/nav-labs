@@ -37,11 +37,46 @@ window.NAVLAB = (function() {
 	var NewsletterSubscribeForm = function(domEl) {
 		var contentOfInterestField = domEl.getElementsByClassName("js-content-of-interest")[0];
 		var emailField = domEl.getElementsByClassName("js-newsletter-email")[0];
+		var messageArea = domEl.getElementsByClassName("js-message-area")[0];
+		var formArea = domEl.getElementsByClassName("js-form-area")[0];
+		var emailErrorMessage = '<p class="newsletter-message newsletter-message--error">Vennligst oppgi en gyldig e-post-adresse!</p>';
+
+		var isValidEmail = function (email) {
+		    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+		    return re.test(email);
+		};
+
+		var validateEmail = function() {
+			if(isValidEmail(emailField.value)) {
+				messageArea.innerHTML = "";
+				return true; 
+			} else {
+				messageArea.innerHTML = emailErrorMessage; 
+				return false; 
+			}
+		};
+
+		var displayMessage = function(res) {
+			messageArea.innerHTML = "<div class='newsletter-message' role='alert'><h3 class='omega'>" + res.title + "</h3><p>" + res.message + "</p></div>";
+		};		
 
 		var displayConfirmation = function(res) {
-			domEl.innerHTML = "<div class='newsletter-message' role='alert'><h3 class='omega'>" + res.title + "</h3><p>" + res.message + "</p></div>";
+			displayMessage(res);
+			formArea.innerHtml = "";
 			domEl.style.opacity = 1; 
 		};
+
+		emailField.addEventListener("keydown", function() {
+			if(messageArea.innerHTML !== "") {
+				messageArea.innerHTML = "";
+			}
+		});
+
+		emailField.addEventListener("blur", function() {
+			if(typeof emailField.value === "string" && emailField.value.trim() !== "") {
+				validateEmail();
+			}
+		});		
 
 		domEl.addEventListener("submit", function(e) {
 			e.preventDefault();
@@ -51,13 +86,19 @@ window.NAVLAB = (function() {
 			if(contentOfInterestField && contentOfInterestField.value) {
 				data.contentOfInterest = contentOfInterestField.value;
 			}
-			ajax.post(domEl.action, data, function(res) {
-				var res = JSON.parse(res);
-				domEl.addEventListener(getTransitionEvent(), function() {
-					displayConfirmation(res);
-				});
-				domEl.style.opacity = 0; 
-			});
+			if(validateEmail()) {
+				ajax.post(domEl.action, data, function(res) {
+					var res = JSON.parse(res);
+					if(res.success) {
+						domEl.addEventListener(getTransitionEvent(), function() {
+							displayConfirmation(res);
+						});
+						domEl.style.opacity = 0; 
+					} else {
+						displayMessage(res);
+					}
+				});				
+			}
 		});
 	};
 

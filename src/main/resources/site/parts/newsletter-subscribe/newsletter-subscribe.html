@@ -1,9 +1,12 @@
 <h2 class="zeta" data-th-text="${title}"></h2>
 <form method="POST" aria-live="polite" data-th-action="${portal.serviceUrl({'_service=newsletter-service'})}" class="js-newsletter-form newsletter-form" novalidate="novalidate">
-	<div>
-		<label>E-post-adresse</label>
-		<input type="email" placeholder="ditt.navn@domene.no" name="email" autocomplete="off" class="input-text input-l js-newsletter-email" />
+	<div class="message-area js-message-area" aria-live="polite" role="alert"></div>
+	<div class="js-form-area">
+		<div> 
+			<label>E-post-adresse</label>
+			<input type="email" placeholder="ditt.navn@domene.no" name="email" autocomplete="off" class="input-text input-l js-newsletter-email" />
+		</div>
+		<input data-th-if="${contentOfInterest}" type="hidden" name="contentOfInterest" data-th-attr="value=${contentOfInterest}" class="js-content-of-interest" />
+		<input type="submit" value="Abonner" class="btn" />
 	</div>
-	<input data-th-if="${contentOfInterest}" type="hidden" name="contentOfInterest" data-th-attr="value=${contentOfInterest}" class="js-content-of-interest" />
-	<input type="submit" value="Abonner" class="btn" />
 </form>
