@@ -9,12 +9,20 @@ var ContentModel = require("/lib/ContentModel.js");
 
 var timestamps = [];
 
-var subscribersPath = "/nav/Abonnenter";
-var confirmationPagePath = "/nav/nyhetsbrev";
+var getSubscribersPath = function() {
+	var config = portal.getSiteConfig(); 
+	var content = new ContentModel(config.newsletterSubscriberArchive);
+	return content._path;
+};
+
+var getConfirmationPageId = function() {
+	var config = portal.getSiteConfig();
+	return config.newsletterConfirmationPage;
+};
 
 var getSubscribers = function () {
 	return content.getChildren({
-		key: subscribersPath
+		key: getSubscribersPath()
 	}).hits;
 };
 
@@ -31,6 +39,15 @@ var hasAttempted = function(JSESSIONID, contentOfInterestId) {
 		return timestamp.JSESSIONID === JSESSIONID && timestamp.contentOfInterestId === contentOfInterestId;
 	});
 	return attempts.length > 5;
+};
+
+exports.get = function() {
+	return {
+		body: JSON.stringify({
+			subscribersPath: getSubscribersPath()	
+		}), 
+		contentType: 'application/json'
+	};
 };
 
 exports.post = function(req) {
@@ -67,7 +84,7 @@ exports.post = function(req) {
 
 		response = content.create({
 			name: name,
-			parentPath: subscribersPath,
+			parentPath: getSubscribersPath(),
 			displayName: emailAddress + " - " + displayName,
 			contentType: "no.nav.navlabs:subscriber",
 			data: {
@@ -87,7 +104,7 @@ exports.post = function(req) {
 		
 		var model = {
 			confirmationPageUrl: portal.pageUrl({
-		  		path: confirmationPagePath,
+		  		id: getConfirmationPageId(),
 		      	type: "absolute",
 		      	params: {
 		      		"s": response._id
