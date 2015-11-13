@@ -41,15 +41,6 @@ var hasAttempted = function(JSESSIONID, contentOfInterestId) {
 	return attempts.length > 5;
 };
 
-exports.get = function() {
-	return {
-		body: JSON.stringify({
-			subscribersPath: getSubscribersPath()	
-		}), 
-		contentType: 'application/json'
-	};
-};
-
 exports.post = function(req) {
 
 	var response = null; 
@@ -57,9 +48,9 @@ exports.post = function(req) {
 	var emailAddress = req.params.email.trim(); 
 	var contentOfInterest = req.params.contentOfInterest;
 
-	var contentModel = new ContentModel(contentOfInterest || "--");
-	var title = contentModel.isDeleted ? "nav-lab" : contentModel._name; 
-	var displayName = contentModel.isDeleted ? "Nav Lab" : contentModel.displayName;
+	var contentOfInterestModel = new ContentModel(contentOfInterest || "--");
+	var contentOfInterestTitle = contentOfInterestModel.isDeleted ? "nav-lab" : contentOfInterestModel._name; 
+	var contentOfInterestDisplayName = contentOfInterestModel.isDeleted ? "Nav Lab" : contentOfInterestModel.displayName;
 
 	if(emailAddress.trim() === "" || !emailAddress) {
 		return {
@@ -80,12 +71,12 @@ exports.post = function(req) {
 			contentType: 'application/json'
 		};
 	} else if(!isSubscriber(emailAddress, contentOfInterest)) {
-		var name = emailAddress.replace("@", "-") + "---" + title;
+		var name = emailAddress.replace("@", "-") + "---" + contentOfInterestTitle;
 
 		response = content.create({
 			name: name,
 			parentPath: getSubscribersPath(),
-			displayName: emailAddress + " - " + displayName,
+			displayName: emailAddress + " - " + contentOfInterestDisplayName,
 			contentType: "no.nav.navlabs:subscriber",
 			data: {
 				emailAddress: emailAddress,
@@ -93,16 +84,8 @@ exports.post = function(req) {
 				contentOfInterest: contentOfInterest
 			}
 		});
-
-		if(response && response._id) {
-			timestamps.push({
-				"JSESSIONID": req.JSESSIONID,
-				"timestamp": new Date(),
-				"contentOfInterestId": contentOfInterest
-			});
-		}
 		
-		var model = {
+		var mailModel = {
 			confirmationPageUrl: portal.pageUrl({
 		  		id: getConfirmationPageId(),
 		      	type: "absolute",
@@ -111,23 +94,40 @@ exports.post = function(req) {
 		      	}
 		  	})
 		};
-		var body = thymeleaf.render(confirmationMailView, model);
+		var mailBody = thymeleaf.render(confirmationMailView, mailModel);
 
 		var isMailSent = mail.send({
 			from: "helgefredheim@gmail.com",
 			to: "helge.fredheim@bekk.no",
-			subject: "Hei, husk å bekrefte " + emailAddress ,
+			subject: "Hei, husk å bekrefte " + emailAddress,
 			contentType: 'text/html; charset="UTF-8"',
-			body: body
+			body: mailBody
 		});
 
+		var title = isMailSent ? "Takk!" : "Ooops!";
+		var message = isMailSent ? "Det gjenstår bare en liten ting. Vi har sendt en bekreftelse til din e-post-adresse med en lenke som du må klikke på." : "Beklager, det oppstod en feil :-( Prøv igjen litt senere!";
+		var isContentDeleted = false; 
+
+		if(!isMailSent) {
+			isContentDeleted = content.delete({
+				key: response._path
+			});
+		}
+
+		if(response && response._id && isMailSent && !isContentDeleted) {
+			timestamps.push({
+				"JSESSIONID": req.JSESSIONID,
+				"timestamp": new Date(),
+				"contentOfInterestId": contentOfInterest
+			});
+		}
+
 		return {
-			status: 201, 
+			status: isMailSent && !isContentDeleted ? 201 : 200, 
 			body: {
-				success: response.valid === true,
-				message: response.data.emailAddress + " ble opprettet. Vi har sendt en bekreftelse til din e-post-adresse.",
-				title: "Takk!",
-				isMailSent: isMailSent
+				message: message,
+				title: title,
+				errorCode: isContentDeleted ? 1 : null
 			},
 			contentType: 'application/json'
 		};

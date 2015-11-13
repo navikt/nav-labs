@@ -39,7 +39,7 @@ window.NAVLAB = (function() {
 		var emailField = domEl.getElementsByClassName("js-newsletter-email")[0];
 
 		var displayConfirmation = function(res) {
-			domEl.innerHTML = "<div class='newsletter-message'><h3 class='omega'>" + res.title + "</h3><p>" + res.message + "</p></div>";
+			domEl.innerHTML = "<div class='newsletter-message' role='alert'><h3 class='omega'>" + res.title + "</h3><p>" + res.message + "</p></div>";
 			domEl.style.opacity = 1; 
 		};
 
