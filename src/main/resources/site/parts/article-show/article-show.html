@@ -1,6 +1,6 @@
 <div class="container">
 	
-	<article class="main-content" role="main" aria-labelledby="article-title">
+	<article role="main" aria-labelledby="article-title">
 
 		<div class="page-header">
 			<h2 class="beta page-title" id="article-title" data-th-text="${article.displayName}">Artikkelens tittel</h2>
@@ -13,7 +13,6 @@
 
 			<div class="wysiwyg-formatted" data-th-utext="${portal.processHtml({'_value=' + article.data.body })}"></div>
 		</div>
-
 
 	</article>
 </div>

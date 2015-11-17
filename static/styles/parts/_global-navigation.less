@@ -24,7 +24,8 @@
 }
 
 .container--global-navigation {
-	display: table
+	display: table;
+	font-size: 1.2em;
 }
 
 .logo-container, .menu-container {
@@ -43,7 +44,6 @@
 
 .site-logo {
 	display: table;
-	font-size: 1.5em; 
 	font-weight: 600; 
 
 	a:hover {
@@ -52,21 +52,28 @@
 
 	> * {
 		display: table-cell;
-		vertical-align: middle; 
 	}
 
 	img {
+		vertical-align: middle; 
 		margin-right: .25em; 
+		height: 2.2em;
+		width: auto; 
 	}
+}
+
+.site-logo span {
+	padding-top: .575em;
+    vertical-align: top;	
 }
 
 .menu-container {
 	text-align: right; 
 	position: relative;
+	padding-top: .4em;
 }
 
 .pills--global-menu {
-	font-size: 1em;
 
 	li {
 		margin-left: .65em; 
@@ -83,7 +90,7 @@
 		width: 100%; 
 		height: .4em;
 		position: absolute;
-		top: -135%; 
+		top: -140%; 
 		left: 0; 
 		background-color: @color-branding; 
 		opacity: 0; 
@@ -102,15 +109,10 @@
 
 @media(min-width: @screen-s) {
 	.pills--global-menu {
-		font-size: 1.2em; 
-
+ 
 		li {
 			margin-left: 1.5em; 
 		}		
-
-		a:hover:before, a:active:before, .is-active:before {
-			top: -100%; 
-		}
 
 	}
 }
