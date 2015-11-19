@@ -1,9 +1,8 @@
-<div class="header-banner" role="banner">
+<div class="header-banner">
 	<div class="container">
-		<h2 id="header-branding" class="header-branding">
+		<h2 id="header-branding" class="header-branding" aria-label="Nav Lab">
 			<span class="highlight" data-th-text="${titleOne}"></span>
-			<span> </span>
-			<span data-th-text="${titleTwo}"></span>
+			<span data-th-remove="tag" data-th-text="${' ' + titleTwo}"></span>
 		</h2>
 
 		<p class="header-tagline" data-th-text="${tagline}" role="definition" aria-labelledby="header-branding"></p>

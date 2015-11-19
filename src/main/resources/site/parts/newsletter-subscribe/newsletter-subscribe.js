@@ -15,7 +15,7 @@ exports.get = function(req) {
 
 	var view = resolve("newsletter-subscribe.html");
 	var body = thymeleaf.render(view, {
-		title: "Abonner på nyhetsbrev",
+		title: "Nyhetsbrev",
 		contentOfInterest: contentOfInterest
 	});
 

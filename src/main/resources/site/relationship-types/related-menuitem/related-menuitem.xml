@@ -7,5 +7,6 @@
     <content-type>base:folder</content-type>
     <content-type>article</content-type>
     <content-type>test</content-type>    
+    <content-type>simple</content-type>    
   </allowed-to-types>
 </relationship-type>

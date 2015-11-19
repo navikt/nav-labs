@@ -100,7 +100,7 @@
             <relationship-type>related-menuitem</relationship-type>
             <allowed-to-types>
               <content-type>simple</content-type>
-            </allowed-to-types>            
+            </allowed-to-types>
           </config>
         </input>       
       </items>
