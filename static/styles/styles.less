@@ -23,3 +23,39 @@
 @import "vendor/kube/grid";
 @import "vendor/kube/grid-responsive";
 @import "vendor/kube/tables";
+
+
+.simple-content {
+	text-align: center;
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+
+.simple-title {
+	.delta;
+	font-weight: 600; 
+}
+
+.decorated {
+	position: relative;
+	padding-bottom: 1em;
+
+	&:after {
+		content: "";
+		width: 1em;
+		height: .05em;
+		position: absolute;
+		left: 50%; 
+		bottom: 0;
+		transform: translateX(-50%);
+		background-color: @color-text; 
+	}
+}
+
+.visually-hidden {
+	position: absolute; 
+	overflow: hidden; 
+	clip: rect(0 0 0 0); 
+	height: 1px; width: 1px; 
+	margin: -1px; padding: 0; border: 0; 
+}

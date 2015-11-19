@@ -13,7 +13,7 @@ exports.get = function() {
 	var result = content.query({
 		count: Math.round(component.config.numberOfArticles) || 5, 
 		contentTypes: ["no.nav.navlabs:article"]
-	});
+	}); 
 
 	if(result.count > 0) {
 		body = thymeleaf.render(view, {

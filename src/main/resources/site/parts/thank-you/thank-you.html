@@ -1,14 +1,10 @@
 <div class="container">
 
-	<article role="main">
+	<article role="main" class="simple-content">
 
-		<div class="page-header">
-			<h2 class="beta page-title" data-th-text="${displayName}"></h2>
-		</div>
+		<h2 class="simple-title decorated" data-th-text="${displayName}"></h2>
 
-		<div class="units-row">
-			<div class="wysiwyg-formatted unit-66" data-th-utext="${portal.processHtml({'_value=' + data.body })}"></div>
-		</div>
+		<div class="wysiwyg-formatted" data-th-utext="${portal.processHtml({'_value=' + data.body })}"></div>
 
 	</article>
 

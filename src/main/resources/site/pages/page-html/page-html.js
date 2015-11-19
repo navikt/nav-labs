@@ -69,13 +69,13 @@ exports.get = function(req) {
       headerRegion: headerRegion, 
       footerRegion: footerRegion,
       footerLinks: footerLinks,
-      pageTitle: content.displayName && content.displayName !== siteTitle && content.displayName !== "" ? content.displayName + ' | ' + siteTitle : siteTitle,
+      pageTitle: content.displayName && content.displayName !== siteTitle && content.displayName !== "" ? content.displayName + ' - ' + siteTitle : siteTitle,
       language: content.language || "no",
       siteTitle: siteTitle,
       siteUrl: siteUrl,
       departmentNameAndYear: siteConfig.departmentName || "Arbeids- og velferdsetaten" + " " + new Date().getFullYear(),
       header: {
-        typoLogo: siteConfig.logoTypoText || "Lab.",
+        typoLogo: siteConfig.logoTypoText || "Lab",
         menuItems: globalMenuItems
       },
       share: {

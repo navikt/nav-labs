@@ -37,13 +37,13 @@
 	            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
 	        </div>
 	    </div>
-	    <footer data-portal-region="footer">
-	    	<div class="container container--spaced">
+	    <div data-portal-region="footer">
+	    	<aside class="container container--spaced">
 		        <div data-th-if="${footerRegion and footerRegion.components}" data-th-each="component : ${footerRegion.components}" data-th-remove="tag">
 		            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
 		        </div>
-		    </div>
-		    <div class="colophon">
+		    </aside>
+		    <footer class="colophon">
 		    	<div class="container">
 		    		<h2 class="colophon-title">
 		    			<a data-th-text="${siteTitle}" data-th-href="${siteUrl}"></a>
@@ -55,8 +55,8 @@
 					</ul>
 					<p data-th-text="${departmentNameAndYear}"></p>
 		    	</div>
-		    </div>
-	    </footer>  
+		    </footer>
+	    </div>  
 	    <script data-th-src="${portal.assetUrl({'_path=main.js'})}"></script> 
 	    <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
