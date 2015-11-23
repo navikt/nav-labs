@@ -1,0 +1,30 @@
+<section class="container">
+	<h2 class="section-title">
+		<span>Testarkiv</span>
+	</h2>
+
+	<div class="navlab-row" data-th-each="row : ${contentRows}">
+		<article class="navlab-column container--highlight archived-content-container" data-th-each="content : ${row}">
+			<div class="archived-test">
+				<p class="featured-content-meta" data-th-text="${content.publishDateFormatted}"></p>
+
+				<h4 class="delta frontpage-test-title">
+					<a href="#" data-th-text="${content.displayName}" data-th-href="${portal.pageUrl({'_path=' + content._path})}"></a>
+				</h4>
+
+				<span data-th-remove="tag" data-th-utext="${content.badgeHtml}"></span>
+
+				<p data-th-text="${content.data.introduction}"></p>
+
+				<p>
+					<a href="#" data-th-href="${portal.pageUrl({'_path=' + content._path})}">Les mer om testen</a>
+				</p>
+
+				<p data-th-if="${content.displayTest}">
+					<a rel="external" class="btn" target="_blank" href="#" data-th-href="${content.data.testUrl}">Start testen</a>
+				</p>
+			</div>
+		</article>
+	</div>
+</section>
+

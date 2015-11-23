@@ -9,6 +9,7 @@
 @import "_lists";
 @import "_badges";
 @import "_form";
+@import "_utils";
 
 // Parts
 @import "parts/_header-banner";
@@ -17,6 +18,8 @@
 @import "parts/_social-media-share";
 @import "parts/_global-navigation";
 @import "parts/_colophon";
+@import "parts/_test-archive";
+@import "parts/_newsletter-form";
 
 // Kube CSS framework
 @import "vendor/kube/mixins";
@@ -34,28 +37,4 @@
 .simple-title {
 	.delta;
 	font-weight: 600; 
-}
-
-.decorated {
-	position: relative;
-	padding-bottom: 1em;
-
-	&:after {
-		content: "";
-		width: 1em;
-		height: .05em;
-		position: absolute;
-		left: 50%; 
-		bottom: 0;
-		transform: translateX(-50%);
-		background-color: @color-text; 
-	}
-}
-
-.visually-hidden {
-	position: absolute; 
-	overflow: hidden; 
-	clip: rect(0 0 0 0); 
-	height: 1px; width: 1px; 
-	margin: -1px; padding: 0; border: 0; 
 }

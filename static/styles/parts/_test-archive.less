@@ -1,0 +1,48 @@
+.archived-content-container {
+	margin-bottom: 1em;
+}
+
+@media(min-width: @screen-m) {
+	.navlab-row {
+		display: flex;
+		align-items: stretch;
+	}
+
+	.navlab-column {
+		margin-right: 2em;
+		margin-bottom: 2em;
+		flex: 1;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.archived-test {
+	padding: 1em;
+	padding-top: 4em;
+	position: relative;
+
+	.status-badge {
+		position: absolute;
+		top: .2em;
+	}
+}
+
+.featured-content-title {
+	margin-top: 0;
+	margin-bottom: 1em; 
+
+	a {
+		border-bottom-width: 0; 
+	}
+
+	a:hover {
+		border-bottom: 1px solid @color-link; 
+	}
+}
+
+.featured-content-meta {
+	margin-bottom: .5em;
+}
