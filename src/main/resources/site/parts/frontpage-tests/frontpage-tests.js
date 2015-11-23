@@ -3,43 +3,16 @@ var thymeleaf = require('/lib/xp/thymeleaf');
 var content = require('/lib/xp/content');
 var utils = require("/lib/utilities.js");
 var TestModel = require("/lib/TestModel.js");
+var featuredTestsDecorator = require("/lib/featuredTestsDecorator.js");
 
 exports.get = function() {
 
-  var view = resolve('frontpage-tests.html');
+  var view = resolve('../../views/featured-tests.html');
   var badgeView = resolve('../../views/status-badge.html');
   var component = portal.getComponent();
   var body = "";
 
-  var tests = utils.getContentKeys(component.config.test);
-
-  tests = tests.map(function(testObject) {
-    var image = null; 
-
-    if(testObject.image) {
-      image = content.get({
-        key: testObject.image
-      });
-    } 
-
-    if(!testObject["related-test"] || !testObject["image"]) {
-      return null; 
-    } else {
-      var test = new TestModel(testObject["related-test"]);
-      
-      if(test.isDeleted) {
-        return null;
-      } else {
-        var badgeHtml = thymeleaf.render(badgeView, test);
-
-        return { 
-          test: test,
-          image: image,
-          badgeHtml: badgeHtml
-        }        
-      }
-    }
-  }); 
+  var tests = featuredTestsDecorator(component.config.test);
 
   body = thymeleaf.render(view, {
     sectionTitle: component.config.sectionTitle || "Hjelp oss å teste",

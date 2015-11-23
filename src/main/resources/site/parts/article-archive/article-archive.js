@@ -23,7 +23,7 @@ exports.get = function() {
   var view = resolve('../../views/featured-articles.html');
 
   var body = thymeleaf.render(view, {
-      sectionTitle: "Arkiverte artikler",
+      sectionTitle: archiveContent.displayName || "Arkiverte artikler",
       articles: hits  
   });
 
