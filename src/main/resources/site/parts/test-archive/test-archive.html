@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="navlab-row" data-th-each="row : ${contentRows}">
 		<article class="navlab-column highlighted archived-content-container" data-th-each="content : ${row}">
-			<div class="archived-test frontpage-test-content">
+			<div class="archived-test featured-test-content">
 				<p class="featured-content-meta" data-th-text="${content.publishDateFormatted}"></p>
 
-				<h4 class="delta frontpage-test-title">
+				<h4 class="delta featured-test-title">
 					<a href="#" data-th-text="${content.displayName}" data-th-href="${portal.pageUrl({'_path=' + content._path})}"></a>
 				</h4>
 
