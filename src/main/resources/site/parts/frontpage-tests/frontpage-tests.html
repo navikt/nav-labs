@@ -4,17 +4,17 @@
 	</h3>
 </div>
 
-<article data-th-each="frontpageTest : ${tests}" class="container--highlight">
+<article data-th-each="frontpageTest : ${tests}" class="block highlighted">
 	<div class="container">
-		<div class="units-row frontpage-test">
+		<div class="navlab-row featured-test">
 
-			<div class="unit-50">
+			<div class="navlab-column">
 				<a class="unstyled a-img img-darkened" data-th-href="${portal.pageUrl({'_path=' + frontpageTest.test._path})}">
 					<img data-th-alt="${frontpageTest.test.displayName}" data-th-src="${portal.imageUrl({'_id=' + frontpageTest.image._id, '_scale=block(500, 380)'})}" width="500" height="380" />
 				</a>
 			</div>
 
-			<div class="unit-50">
+			<div class="navlab-column featured-test-content">
 
 				<p data-th-text="${frontpageTest.test.publishDateFormatted}" class="featured-content-meta"></p>
 

@@ -7,7 +7,7 @@ var TestModel = require("/lib/TestModel.js");
 exports.get = function() {
 
   var view = resolve('frontpage-tests.html');
-  var badgeView = resolve('../../views/status-badge.html')
+  var badgeView = resolve('../../views/status-badge.html');
   var component = portal.getComponent();
   var body = "";
 

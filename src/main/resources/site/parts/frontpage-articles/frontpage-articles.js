@@ -5,7 +5,7 @@ var utils = require("/lib/utilities.js");
 
 exports.get = function() {
 
-	var view = resolve('frontpage-articles.html');
+	var view = resolve('../../views/featured-articles.html');
 	var body = "<p>Velg noen artikler du vil vise på forsiden</p>";
 
 	var component = portal.getComponent();
