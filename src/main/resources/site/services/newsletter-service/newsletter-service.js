@@ -127,7 +127,8 @@ exports.post = function(req) {
 			body: {
 				message: message,
 				title: title,
-				success: isMailSent && !isContentDeleted
+				success: isMailSent && !isContentDeleted,
+				isMailSent: isMailSent
 			},
 			contentType: 'application/json'
 		};
