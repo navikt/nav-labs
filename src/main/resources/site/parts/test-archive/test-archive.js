@@ -67,7 +67,7 @@ exports.get = function() {
 
   // Return the result
   return {
-    body: featuredBody + body,
+    body: '<div class="block-xl">' + featuredBody + body + '</div>',
     contentType: 'text/html'
   };
 

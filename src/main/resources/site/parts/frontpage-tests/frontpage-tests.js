@@ -19,6 +19,8 @@ exports.get = function() {
     tests: tests
   });
 
+  body = '<div class="block-xl">' + body + '</div>';
+
   return {
     body: body,
     contentType: 'text/html'
