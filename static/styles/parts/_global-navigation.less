@@ -23,13 +23,12 @@
 
 }
 
-.container--global-navigation {
-	display: table;
-	font-size: 1.2em;
+.global-navigation {
+	display: flex;
+	font-size: .9em;
 }
 
 .logo-container, .menu-container {
-	display: table-cell;
 	vertical-align: middle; 
 }
 
@@ -70,7 +69,8 @@
 .menu-container {
 	text-align: right; 
 	position: relative;
-	padding-top: .4em;
+	flex: 1; 
+	padding-top: 1.5em;
 }
 
 .pills--global-menu {
@@ -105,14 +105,14 @@
 	.is-active {
 		font-weight: 600; 
 	}
-}
+} 
 
 @media(min-width: @screen-s) {
-	.pills--global-menu {
- 
-		li {
-			margin-left: 1.5em; 
-		}		
-
+	.pills--global-menu li {
+		margin-left: 1.5em; 
 	}
+
+	.global-navigation {
+		font-size: 1.2em		
+	}	
 }

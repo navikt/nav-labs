@@ -1,3 +1,7 @@
+.main-region {
+	padding-top: 74px;
+}
+
 .container {
 	width: 100%; 
 	max-width: 960px; 
@@ -7,10 +11,6 @@
 	padding-left: 1em; 
 	padding-right: 1em; 
 } 
-
-.main-region {
-	padding-top: 74px;
-}
 
 figure {
 	padding: 0; 
@@ -53,4 +53,10 @@ hr {
 .main-content {
 	padding-bottom: 1em;
 	border-bottom: 1px solid @color-border; 
+}
+
+@media(max-width: @screen-m) {
+	aside .content-list {
+		margin-bottom: 2em;
+	}
 }
