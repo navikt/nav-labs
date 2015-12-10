@@ -73,7 +73,7 @@ exports.get = function(req) {
       language: content.language || "no",
       siteTitle: siteTitle,
       siteUrl: siteUrl,
-      departmentNameAndYear: siteConfig.departmentName || "Arbeids- og velferdsetaten" + " " + new Date().getFullYear(),
+      departmentNameAndYear: (siteConfig.departmentName || "Arbeids- og velferdsetaten") + " " + new Date().getFullYear(),
       header: {
         typoLogo: siteConfig.logoTypoText || "Lab",
         menuItems: globalMenuItems
