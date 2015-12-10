@@ -9,7 +9,7 @@ var statusesFormatted = {
     "className": "status-badge status-badge--analyzing"
   },
   "testing": {
-    "label": "Tester nå!",
+    "label": "Test nå!",
     "className": "status-badge status-badge--testing"
   },
   "finished": {
@@ -36,7 +36,7 @@ TestModel.prototype.setDays = function () {
     var expiryMoment = moment(this.data.expiryDate);
     var daysToExpiry = expiryMoment.diff(moment().startOf("day"), "days"); 
     this.daysToExpiry = daysToExpiry !== undefined ? daysToExpiry + "" : "0";
-    this.daysToExpiryLabel = this.daysToExpiry === "1" ? "1 dag" : this.daysToExpiry + " dager"
+    this.daysToExpiryLabel = this.daysToExpiry === "1" ? "1 dag igjen" : this.daysToExpiry + " dager igjen"
     return this; 
 };
 
