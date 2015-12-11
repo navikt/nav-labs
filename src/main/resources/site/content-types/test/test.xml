@@ -9,6 +9,15 @@
     <field-set name="basic">
       <label>Informasjon</label>
       <items> 
+      <input type="ContentSelector" name="authors">
+        <label>Skrevet av</label>
+        <immutable>false</immutable>
+        <indexed>true</indexed>
+        <occurrences minimum="0" maximum="0"/>
+        <config>
+          <relationship-type>related-person</relationship-type>
+        </config>
+      </input>         
         <input type="TextArea" name="introduction">
           <label>Ingress</label>
           <immutable>false</immutable>

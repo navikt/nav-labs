@@ -7,7 +7,14 @@
 			<div class="page-meta" data-th-utext="${badgeHtml}"></div>
 		</div>
 
-		<p data-th-text="${test.publishDateFormatted}"></p>
+		<p>
+			<span data-th-remove="tag" data-th-if="${test.hasAuthors}">
+				<span data-th-text="${test.authorsString}"></span>
+			</span>
+				<span data-th-text="${test.publishDateFormatted}"></span>
+				<span data-th-if="${test.modifiedDateFormatted != test.publishDateFormatted}"> - sist endret <span data-th-text="${test.modifiedDateFormatted}"></span>
+			</span>
+		</p>
 
 		<div class="article-content">
 

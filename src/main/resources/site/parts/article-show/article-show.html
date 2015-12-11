@@ -6,7 +6,14 @@
 		</div>
 
 		<div class="article-content">
-			<p data-th-text="${article.publishDateFormatted}"></p>
+			<p>
+				<span data-th-remove="tag" data-th-if="${article.hasAuthors}">
+					<span data-th-text="${article.authorsString}"></span>
+				</span>
+					<span data-th-text="${article.publishDateFormatted}"></span>
+					<span data-th-if="${article.modifiedDateFormatted != article.publishDateFormatted}"> - sist endret <span data-th-text="${article.modifiedDateFormatted}"></span>
+				</span>
+			</p>
 		
 			<p class="lead lead--article" data-th-text="${article.data.introduction}"></p>
 

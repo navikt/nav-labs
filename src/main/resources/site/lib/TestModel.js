@@ -26,6 +26,7 @@ var TestModel = function(key) {
   if(!this.isDeleted) {
     this.displayTest = typeof this.data.testUrl === "string" && this.data.testUrl.trim() !== "";
     ContentModel.prototype.setPublishDateFormatted.call(this);
+    ContentModel.prototype.setModifiedDateFormatted.call(this);
     this.setDays(); 
     this.setStatus();    
   }

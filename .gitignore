@@ -15,3 +15,5 @@ build
 .gradle/
 node_modules
 npm-debug.log
+navlabs.sublime-project
+navlabs.sublime-workspace

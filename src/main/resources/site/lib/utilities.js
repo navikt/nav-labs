@@ -28,6 +28,26 @@ module.exports = {
     return keys; 
   },
 
+  getAuthorsString: function(authorContents) {
+    var authors = authorContents.map(function(author) {
+      return author.data.firstName
+    });
+
+    var authorString = "av "
+
+    if(authors.length === 1) {
+        return authorString + authors[0];
+    } else if(authors.length > 1) {
+      var comma = ", ";
+      var replace = " og ";
+      authors = authors.join(comma);
+      var index = authors.lastIndexOf(comma);
+      return authorString + authors.substring(0, index) + replace + authors.substring(index + comma.length);
+    } else {
+      return null; 
+    } 
+  },
+
   getShareModel: function(content) {
 
     var title = content.displayName;

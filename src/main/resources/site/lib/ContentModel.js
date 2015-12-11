@@ -39,4 +39,9 @@ ContentModel.prototype.setPublishDateFormatted = function(format) {
 	return this; 
 };
 
+ContentModel.prototype.setModifiedDateFormatted = function(format) {
+	this.modifiedDateFormatted = moment(this.modifiedTime).format(format || "DD.MM.YYYY"); 
+	return this; 
+}
+
 module.exports = ContentModel; 
