@@ -38,6 +38,7 @@ exports.get = function(req) {
     path: content._path,
     type: "absolute"
   });
+  var openGraphType = content.type === "portal:site" ? "website" : "article";
 
   // global menu
 
@@ -79,12 +80,14 @@ exports.get = function(req) {
         menuItems: globalMenuItems
       },
       share: {
-        title: content.data.socialMediaTitle || content.displayName || siteTitle,
-        description: content.data.socialMediaIntroduction,
-        image: shareImage,
-        url: shareUrl,
-        siteTitle: siteTitle,
-        facebookAppId: siteConfig.facebookAppId || null
+        facebookAppId: siteConfig.facebookAppId || null,
+        openGraphTitle: content.data.socialMediaTitle || content.displayName || siteTitle,
+        openGraphDescription: content.data.socialMediaIntroduction || site.data.description,
+        openGraphImage: shareImage,
+        openGraphUrl: shareUrl,
+        openGraphSiteName: siteTitle,
+        openGraphType: openGraphType,
+        openGraphLocale: "nb_NO"
       }
   };
 

@@ -6,12 +6,13 @@
 	  <link data-th-href="${portal.assetUrl({'_path=styles.css'})}" href="../assets/css/nav-labs.css" rel="stylesheet"/> 
 	  <title data-th-text="${pageTitle}"></title>
 	  <meta property="fb:app_id" data-th-attr="content=${share.facebookAppId}" /> 
-	  <meta property="og:type"   content="article" /> 
-	  <meta property="og:site_name" data-th-attr="content=${share.siteTitle}"/>
-	  <meta property="og:url"    data-th-attr="content=${share.url}" />
-	  <meta property="og:title"  data-th-attr="content=${share.title}" /> 
-	  <meta property="og:image"  data-th-if="${share.image}" data-th-attr="content=${share.image}" />
-	  <meta property="og:description" data-th-attr="content=${share.description}" />
+	  <meta property="og:type" data-th-attr="content=${share.openGraphType}" /> 
+	  <meta property="og:site_name" data-th-attr="content=${share.openGraphSiteName}"/>
+	  <meta property="og:url"    data-th-attr="content=${share.openGraphLocale}" />
+	  <meta property="og:title"  data-th-attr="content=${share.openGraphTitle}" /> 
+	  <meta property="og:image"  data-th-if="${share.image}" data-th-attr="content=${share.openGraphLocale}" />
+	  <meta property="og:description" data-th-attr="content=${share.openGraphDescription}" />
+	  <meta property="og:locale" data-th-attr="content=${share.openGraphLocale}" />
 	</head>
     
 	<body class="page">
