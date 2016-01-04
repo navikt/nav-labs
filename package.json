@@ -1,7 +1,7 @@
 {
-  "name": "nav-labs",
+  "name": "nav-lab-static-resources",
   "version": "1.0.0",
-  "description": "",
+  "description": "Watch and build of static resources for NAV Lab, www.navlab.no",
   "main": "index.js",
   "scripts": {
     "watch:client:styles": "nodemon -q -w static/styles --ext 'less' --exec 'npm run build:client:styles'",
@@ -11,7 +11,7 @@
     "watch": "parallelshell \"npm run watch:client:scripts\" \"npm run watch:client:styles\"",
     "build": "parallelshell \"npm run build:client:scripts\" \"npm run build:client:styles\""
   },
-  "author": "",
+  "author": "Helge Fredheim, helge.fredheim@bekk.no",
   "license": "ISC",
   "devDependencies": {
     "clean-css": "^3.4.6",
