@@ -30,17 +30,23 @@ exports.get = function() {
 
   // Other tests
 
-  var hits = [];
-  var featuredTestsIds = frontpageTests.config.test.map(function(item) {
-    return item["related-test"];
-  });
+  var hits = []; 
+  var featuredTestsIds = [];
+
+  if(frontpageTests.config.test) {
+    /* If there are any tests on the front page, 
+    we place the IDs of those tests in this array */
+    featuredTestsIds = frontpageTests.config.test.map(function(item) {
+      return item["related-test"];
+    });
+  }
 
   if(archiveContent.hasChildren) {
     var archivedContents = content.getChildren({
       key: archiveContent._path
     });
     hits = archivedContents.hits; 
-  }  
+  }
 
   var tests = hits.map(function(hit) {
   	return new TestModel(hit._id);
