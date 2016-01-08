@@ -62,7 +62,7 @@ window.NAVLAB = (function() {
 
 		var displayConfirmation = function(res) {
 			displayMessage(res);
-			formArea.innerHtml = "";
+			formArea.innerHTML = "";
 			domEl.style.opacity = 1; 
 		};
 
@@ -87,6 +87,8 @@ window.NAVLAB = (function() {
 				data.contentOfInterest = contentOfInterestField.value;
 			}
 			if(validateEmail()) {
+				emailField.setAttribute("disabled", "disabled");
+				domEl.getElementsByClassName("js-btn")[0].setAttribute("disabled", "disabled");
 				ajax.post(domEl.action, data, function(res) {
 					var res = JSON.parse(res);
 					if(res.success) {
@@ -96,6 +98,8 @@ window.NAVLAB = (function() {
 						domEl.style.opacity = 0; 
 					} else {
 						displayMessage(res);
+						emailField.removeAttribute("disabled");
+						domEl.getElementsByClassName("js-btn")[0].removeAttribute("disabled");						
 					}
 				});				
 			}

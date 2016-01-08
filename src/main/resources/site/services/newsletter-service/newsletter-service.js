@@ -3,9 +3,7 @@ var thymeleaf = require('/lib/xp/thymeleaf');
 var moment = require("../node_modules/moment/moment.js");
 var content = require('/lib/xp/content');
 var utils = require("/lib/utilities.js");
-var mail = require('/lib/xp/mail');
-var confirmationMailView = resolve("confirmation-mail.html");
-var ContentModel = require("/lib/ContentModel.js");
+var httpClientLib = require('/lib/xp/http-client');
 
 var timestamps = [];
 
@@ -27,11 +25,7 @@ var getSubscribers = function () {
 };
 
 var isSubscriber = function (email, contentId) {
-	var subscribers = getSubscribers(); 
-	var subscriber = subscribers.filter(function(sub) {
-		return sub.data.emailAddress === email && sub.data.contentOfInterest === contentId; 
-	});
-	return subscriber.length > 0; 
+	return false; 
 };
 
 var hasAttempted = function(JSESSIONID, contentOfInterestId) {
@@ -46,11 +40,7 @@ exports.post = function(req) {
 	var response = null; 
 	
 	var emailAddress = req.params.email.trim(); 
-	var contentOfInterest = req.params.contentOfInterest;
-
-	var contentOfInterestModel = new ContentModel(contentOfInterest || "--");
-	var contentOfInterestTitle = contentOfInterestModel.isDeleted ? "nav-lab" : contentOfInterestModel._name; 
-	var contentOfInterestDisplayName = contentOfInterestModel.isDeleted ? "Nav Lab" : contentOfInterestModel.displayName;
+	var contentOfInterest = "";
 
 	if(emailAddress.trim() === "" || !emailAddress) {
 		return {
@@ -70,76 +60,45 @@ exports.post = function(req) {
 			}),
 			contentType: 'application/json'
 		};
-	} else if(!isSubscriber(emailAddress, contentOfInterest)) {
-		var name = emailAddress.replace("@", "-") + "---" + contentOfInterestTitle;
+	} else {
 
-		response = content.create({
-			name: name,
-			parentPath: getSubscribersPath(),
-			displayName: emailAddress + " - " + contentOfInterestDisplayName,
-			contentType: "no.nav.navlabs:subscriber",
-			data: {
-				emailAddress: emailAddress,
-				isConfirmed: false,
-				contentOfInterest: contentOfInterest
+		var apiKey = "d5162ff6cacab639cdf1bff5fa232b4c-us12";
+		var url = "https://us12.api.mailchimp.com/3.0/lists/9d11cc9f32/members/";
+
+		var response = httpClientLib.request({
+		    url: url,
+		    method: 'POST',
+		    connectionTimeout: 20000,
+		    readTimeout: 5000,
+		    body: JSON.stringify({
+		    	"email_address": emailAddress,
+		    	"status": "pending"
+		    }),
+		    contentType: 'application/json',
+		    headers: {
+			    "authorization": "Basic YWJjOmQ1MTYyZmY2Y2FjYWI2MzljZGYxYmZmNWZhMjMyYjRjLXVzMTI=",
+			    "cache-control": "no-cache"
 			}
 		});
-		
-		var mailModel = {
-			confirmationPageUrl: portal.pageUrl({
-		  		id: getConfirmationPageId(),
-		      	type: "absolute",
-		      	params: {
-		      		"s": response._id
-		      	}
-		  	})
-		};
-		var mailBody = thymeleaf.render(confirmationMailView, mailModel);
 
-		var isMailSent = mail.send({
-			from: "helgefredheim@gmail.com",
-			to: "helge.fredheim@bekk.no",
-			subject: "Hei, husk å bekrefte " + emailAddress,
-			contentType: 'text/html; charset="UTF-8"',
-			body: mailBody
-		});
-
-		var title = isMailSent ? "Takk!" : "Ooops!";
-		var message = isMailSent ? "Det gjenstår bare en liten ting. Vi har sendt en bekreftelse til din e-post-adresse med en lenke som du må klikke på." : "Beklager, det oppstod en feil :-( Prøv igjen litt senere!";
-		var isContentDeleted = false; 
-
-		if(!isMailSent) {
-			isContentDeleted = content.delete({
-				key: response._path
-			});
+		if(response.status === 400) {
+			return {
+				body: {
+					success: false,
+					title: "Du har allerede registrert deg som abonnent!",
+					message: "Prøv med en annen adresse."
+				}, 
+				contentType: 'application/json'
+			}
+		} else {
+			return {
+				body: {
+					title: "Straks ferdig!",
+					message: "Vi har sendt deg en e-post med en lenke som du må klikke på for å aktivere ditt abonnement.",
+					success: true
+				},
+				contentType: 'application/json'
+			}
 		}
-
-		if(response && response._id && isMailSent && !isContentDeleted) {
-			timestamps.push({
-				"JSESSIONID": req.JSESSIONID,
-				"timestamp": new Date(),
-				"contentOfInterestId": contentOfInterest
-			});
-		}
-
-		return {
-			status: isMailSent && !isContentDeleted ? 201 : 200, 
-			body: {
-				message: message,
-				title: title,
-				success: isMailSent && !isContentDeleted,
-				isMailSent: isMailSent
-			},
-			contentType: 'application/json'
-		};
-	} else {
-		return {
-			body: {
-				success: false,
-				title: "Du har allerede registrert deg som abonnent!",
-				message: "Prøv med en annen adresse."
-			}, 
-			contentType: 'application/json'
-		}
-	} 
+	}
 };

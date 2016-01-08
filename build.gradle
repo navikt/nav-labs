@@ -24,7 +24,7 @@ app {
 }
 
 ext {
-    xpVersion = '6.1.1'
+    xpVersion = '6.3.0'
 }
 
 dependencies {
@@ -37,6 +37,7 @@ dependencies {
     include "com.enonic.xp:lib-mustache:${xpVersion}"
     include "com.enonic.xp:lib-i18n:${xpVersion}"
     include "com.enonic.xp:lib-mail:${xpVersion}"
+    include "com.enonic.xp:lib-http-client:${xpVersion}"
 }
 
 repositories {
