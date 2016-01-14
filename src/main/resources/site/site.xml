@@ -2,7 +2,7 @@
 <site>
   <config>
     <field-set name="info">
-      <label>Sosiale medier</label>
+      <label>Innstillinger</label>
       <items>
         <input type="TextLine" name="disqusShortName">
           <label>Disqus short name</label>
@@ -11,7 +11,11 @@
         <input type="TextLine" name="facebookAppId">
           <label>Facebook App ID</label>
           <occurrences minimum="0" maximum="1"/>
-        </input>                             
+        </input>
+        <input type="TextLine" name="environment">
+          <label>Miljø</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>                           
       </items>
     </field-set>
     <field-set name="defaultTexts">

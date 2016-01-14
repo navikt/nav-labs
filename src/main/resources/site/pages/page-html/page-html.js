@@ -11,6 +11,8 @@ exports.get = function(req) {
   var site = portal.getSite(); 
   var siteConfig = site.data.siteConfig.config; 
 
+  var environment = site.data.siteConfig.config.environment || "";
+
   var headerRegion = content.page.regions.header;
   var mainRegion = content.page.regions.main;
   var footerRegion = content.page.regions.footer;
@@ -88,7 +90,8 @@ exports.get = function(req) {
         openGraphSiteName: siteTitle,
         openGraphType: openGraphType,
         openGraphLocale: "nb_NO"
-      }
+      },
+      trackPage: req.mode === "live" && environment.trim().toUpperCase() === "PROD"
   };
 
   var body = thymeleaf.render(view, model);
