@@ -80,34 +80,5 @@
         </item-set>       
       </items>
     </field-set>
-    <field-set name="newsletter">
-      <label>Nyhetsbrev</label>
-      <items>      
-        <input type="ContentSelector" name="newsletterSubscriberArchive">
-          <label>Arkiv for abonneneter</label>
-          <immutable>false</immutable>
-          <indexed>true</indexed>
-          <occurrences minimum="1" maximum="1"/>
-          <config>
-            <relationship-type>related-menuitem</relationship-type>
-            <allowed-to-types>
-              <content-type>base:folder</content-type>   
-            </allowed-to-types>
-          </config>
-        </input>
-        <input type="ContentSelector" name="newsletterConfirmationPage">
-          <label>Bekreftelsesside for nyhetsbrev</label>
-          <immutable>false</immutable>
-          <indexed>true</indexed>
-          <occurrences minimum="1" maximum="1"/>
-          <config>
-            <relationship-type>related-menuitem</relationship-type>
-            <allowed-to-types>
-              <content-type>simple</content-type>
-            </allowed-to-types>
-          </config>
-        </input>       
-      </items>
-    </field-set>
   </config>
 </site>
