@@ -59,7 +59,14 @@
 					<p data-th-text="${departmentNameAndYear}"></p>
 		    	</div>
 		    </footer>
-	    </div>  
+	    </div>
+	    <script data-th-if="${trackPage}" src="//www.google-analytics.com/cx/api.js?experiment=G-CI-glDR8yngWcS69ltBw"></script>
+	    <script type="text/javascript">
+	    	window.NAVLAB = {}; 
+	    	window.NAVLAB.config = {
+	    		trackPage: true
+	    	};
+	    </script>
 	    <script data-th-src="${portal.assetUrl({'_path=main.js'})}"></script> 
 	    <script data-th-if="${trackPage}">
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

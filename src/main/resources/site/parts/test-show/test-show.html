@@ -21,13 +21,13 @@
 			<p class="lead" data-th-text="${test.data.introduction}"></p>
 
 			<p class="btn-row--top" data-th-if="${test.displayTest}">
-				<a rel="external" data-th-href="${test.data.testUrl}" class="btn">Start testen</a>
+				<a rel="external" data-th-href="${test.data.testUrl}" class="btn js-start-test-button">Start testen</a>
 			</p>				
 
 			<div class="wysiwyg-formatted" data-th-utext="${portal.processHtml({'_value=' + test.data.body })}"></div>
 
 			<p class="btn-row--bottom" data-th-if="${test.displayTest}">
-				<a rel="external" data-th-href="${test.data.testUrl}" class="btn">Start testen</a>
+				<a rel="external" data-th-href="${test.data.testUrl}" class="btn js-start-test-button">Start testen</a>
 			</p>
 
 		</div>
