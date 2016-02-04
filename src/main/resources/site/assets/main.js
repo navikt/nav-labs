@@ -35,7 +35,7 @@ window.NAVLAB.src = (function() {
 
 	if(window.NAVLAB.config.trackPage) {
 
-		// Test ‹Ta testen› vs ‹Delta!›
+		// Test "Ta testen" vs "Delta!"
 
 		var els = document.getElementsByClassName("js-start-test-button");
 
