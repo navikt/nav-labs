@@ -17,7 +17,7 @@
           <occurrences minimum="0" maximum="1"/>
         </input>   
         <input type="TextArea" name="googleTagManagerScript">
-          <label>Script for Google Tag Manager (uten script-tag)</label>
+          <label>Script for Google Tag Manager (inkludert script-tag(s))</label>
           <occurrences minimum="0" maximum="1"/>
         </input>
       </items>

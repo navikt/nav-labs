@@ -16,9 +16,8 @@
 	</head>
     
 	<body class="page">
-	    <script data-th-if="${trackPage}">
-	    	<div data-th-utext="${googleTagManagerScript}" data-th-remove="tag"></div>
-		</script> 
+	    
+	    <div data-th-if="${trackPage}" data-th-utext="${googleTagManagerScript}" data-th-remove="tag"></div>
 		<div class="global-top">
 			<header class="global-menubar">
 				<div class="container">

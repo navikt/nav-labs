@@ -91,7 +91,7 @@ exports.get = function(req) {
         openGraphType: openGraphType,
         openGraphLocale: "nb_NO"
       },
-      trackPage: req.mode === "live" && environment.trim().toUpperCase() === "PROD",
+      trackPage: true, // req.mode === "live" && environment.trim().toUpperCase() === "PROD",
       googleTagManagerScript: siteConfig.googleTagManagerScript || ''
   };
 
