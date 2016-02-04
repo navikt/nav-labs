@@ -91,7 +91,8 @@ exports.get = function(req) {
         openGraphType: openGraphType,
         openGraphLocale: "nb_NO"
       },
-      trackPage: req.mode === "live" && environment.trim().toUpperCase() === "PROD"
+      trackPage: req.mode === "live" && environment.trim().toUpperCase() === "PROD",
+      googleTagManagerScript: siteConfig.googleTagManagerScript || ''
   };
 
   var body = thymeleaf.render(view, model);

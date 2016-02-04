@@ -15,7 +15,11 @@
         <input type="TextLine" name="environment">
           <label>Miljø</label>
           <occurrences minimum="0" maximum="1"/>
-        </input>                           
+        </input>   
+        <input type="TextArea" name="googleTagManagerScript">
+          <label>Script for Google Tag Manager (uten script-tag)</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
       </items>
     </field-set>
     <field-set name="defaultTexts">
