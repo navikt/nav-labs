@@ -10,7 +10,7 @@
 	  <meta property="og:site_name" data-th-attr="content=${share.openGraphSiteName}"/>
 	  <meta property="og:url"    data-th-attr="content=${share.openGraphUrl}" />
 	  <meta property="og:title"  data-th-attr="content=${share.openGraphTitle}" /> 
-	  <meta property="og:image"  data-th-if="${share.image}" data-th-attr="content=${share.openGraphLocale}" />
+	  <meta property="og:image"  data-th-if="${share.openGraphImage}" data-th-attr="content=${share.openGraphLocale}" />
 	  <meta property="og:description" data-th-attr="content=${share.openGraphDescription}" />
 	  <meta property="og:locale" data-th-attr="content=${share.openGraphLocale}" />
 	  <div data-th-if="${trackPage}" data-th-utext="${googleTagManagerScript}" data-th-remove="tag"></div>
