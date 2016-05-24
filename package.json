@@ -17,7 +17,9 @@
     "clean-css": "^3.4.6",
     "less": "^2.5.1",
     "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1"
+    "less-plugin-clean-css": "^1.5.1",
+    "nodemon": "^1.9.2",
+    "parallelshell": "^2.0.0"
   },
   "dependencies": {
     "browserify": "^11.1.0",
