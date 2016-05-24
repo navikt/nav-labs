@@ -15,6 +15,18 @@
           <indexed>true</indexed>
           <occurrences minimum="0" maximum="1"/>
         </input>
+        <input type="TextLine" name="nextUrl">
+          <label>URL for neste steg</label>
+          <immutable>false</immutable>
+          <indexed>true</indexed>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
+        <input type="TextLine" name="nextLabel">
+          <label>Tekst på knapp til neste steg</label>
+          <immutable>false</immutable>
+          <indexed>true</indexed>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
       </items>
     </field-set>
     <input type="ContentSelector" name="testOfInterest">

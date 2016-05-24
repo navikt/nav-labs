@@ -4,7 +4,11 @@
 
 		<h2 class="simple-title decorated" data-th-text="${displayName}"></h2>
 
-		<div class="wysiwyg-formatted" data-th-utext="${portal.processHtml({'_value=' + data.body })}"></div>
+		<div class="wysiwyg-formatted" data-th-utext="${portal.processHtml({'_value=' + body })}"></div>
+
+		<div class="btn-row--bottom" data-th-if="${displayNext}">
+			<a data-th-href="${nextUrl}" data-th-text="${nextLabel}" class="btn" />
+		</div>
 
 	</article>
 
