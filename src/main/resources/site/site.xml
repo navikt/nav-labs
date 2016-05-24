@@ -11,7 +11,11 @@
         <input type="TextLine" name="facebookAppId">
           <label>Facebook App ID</label>
           <occurrences minimum="0" maximum="1"/>
-        </input>
+        </input> 
+        <input type="TextLine" name="mailchimpApiKey">
+          <label>MailChimp API-key</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input> 
         <input type="TextLine" name="environment">
           <label>Miljø</label>
           <occurrences minimum="0" maximum="1"/>
@@ -28,7 +32,7 @@
         <input type="HtmlArea" name="defualtThankYouText">
           <label>Takk</label>
           <occurrences minimum="1" maximum="1"/>
-        </input>                            
+        </input>
       </items>      
     </field-set>
     <field-set name="globalMenu">

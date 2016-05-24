@@ -37,8 +37,10 @@ var hasAttempted = function(JSESSIONID, contentOfInterestId) {
 
 exports.post = function(req) {
 
+	var config = portal.getSiteConfig();
+	var mailchimpApiKey = config.mailchimpApiKey
+
 	var response = null; 
-	
 	var emailAddress = req.params.email.trim(); 
 	var contentOfInterest = "";
 
@@ -62,7 +64,7 @@ exports.post = function(req) {
 		};
 	} else {
 
-		var apiKey = "d5162ff6cacab639cdf1bff5fa232b4c-us12";
+		var apiKey = mailchimpApiKey;
 		var url = "https://us12.api.mailchimp.com/3.0/lists/9d11cc9f32/members/";
 
 		var response = httpClientLib.request({
