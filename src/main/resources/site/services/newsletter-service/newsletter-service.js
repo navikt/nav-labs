@@ -1,6 +1,6 @@
 var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/xp/thymeleaf');
-var moment = require("../node_modules/moment/moment.js");
+var moment = require("../../node_modules/moment/moment.js");
 var content = require('/lib/xp/content');
 var utils = require("/lib/utilities.js");
 var httpClientLib = require('/lib/xp/http-client');

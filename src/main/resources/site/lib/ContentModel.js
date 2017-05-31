@@ -1,7 +1,7 @@
 var portal = require('/lib/xp/portal');
 var content = require('/lib/xp/content');
 var utils = require('/lib/utilities.js');
-var moment = require("../node_modules/moment/moment.js");
+var moment = require("../../node_modules/moment/moment.js");
 moment.locale("nb");
 
 var ContentModel = function(key, displayName, defaults) {

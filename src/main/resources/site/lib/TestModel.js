@@ -1,5 +1,5 @@
 var ContentModel = require("./ContentModel.js");
-var moment = require("../node_modules/moment/moment.js");
+var moment = require("../../node_modules/moment/moment.js");
 var utils = require("./utilities.js");
 moment.locale("nb");
 
