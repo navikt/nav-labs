@@ -22,7 +22,7 @@
     "parallelshell": "^2.0.0"
   },
   "dependencies": {
-    "browserify": "^11.1.0",
+    "browserify": "^12.0.0",
     "mocha": "^2.3.3",
     "moment": "^2.10.6"
   }
